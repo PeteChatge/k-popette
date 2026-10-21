@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Ricky's K-POP Gazette – K-Pop, Klatsch & Cheerdance</title>
+<script>
+try {
+  var savedTheme = localStorage.getItem('rkg-theme');
+  var themeParam = new URLSearchParams(location.search).get('theme');
+  if (themeParam === 'dark' || themeParam === 'light') document.documentElement.dataset.theme = themeParam;
+  else if (savedTheme === 'dark' || savedTheme === 'light') document.documentElement.dataset.theme = savedTheme;
+} catch (error) {}
+</script>
+<style id="siteStyles">
+:root {
+  color-scheme: light;
+  --paper: #fff8fb;
+  --paper-2: #ffe9f1;
+  --card: #fffdfd;
+  --ink: #3a2b33;
+  --muted: #8d5c6d;
+  --line: #8e2f4e;
+  --on-accent: #3a2b33;
+  --pink: #f6b7cd;
+  --lilac: #e6bdd9;
+  --lime: #ffd7e4;
+  --sky: #ffe4ee;
+  --blue: #8ecae6;
+  --yellow: #fff0c2;
+  --gold: #b8860b;
+  --red: #d65375;
+  --tint-1: #fff0f5;
+  --tint-2: #fff7fa;
+  --tint-3: #fff8e8;
+  --tint-4: #ffe8f0;
+  --glow-a: rgba(247, 201, 216, .58);
+  --glow-b: rgba(246, 183, 205, .30);
+  --grid: rgba(58, 43, 51, .05);
+  --ticker-bg: #8e2f4e;
+  --ticker-ink: #fff8fb;
+  --shadow: 6px 6px 0 var(--line);
+  --shadow-sm: 3px 3px 0 var(--line);
+  --radius: 26px;
+  --mini-h: clamp(52px, 7.5vh, 76px);
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #1b1b1d;
+  --paper-2: #222225;
+  --card: #262629;
+  --ink: #e8e8e8;
+  --muted: #b6b6b8;
+  --line: #55555a;
+  --on-accent: #151515;
+  --pink: #c9a227;
+  --lilac: #d4b45a;
+  --lime: #c9a227;
+  --sky: #3a3a3e;
+  --blue: #5c9dc4;
+  --yellow: #d8b85a;
+  --gold: #c9a227;
+  --red: #c9a227;
+  --tint-1: #2c2c2f;
+  --tint-2: #303034;
+  --tint-3: #332f24;
+  --tint-4: #2b2b2e;
+  --glow-a: rgba(201, 162, 39, .10);
+  --glow-b: rgba(255, 255, 255, .035);
+  --grid: rgba(255, 255, 255, .035);
+  --ticker-bg: #111112;
+  --ticker-ink: #e8e8e8;
+  --shadow: 6px 6px 0 #0d0d0d;
+  --shadow-sm: 3px 3px 0 #0d0d0d;
+}
+* { box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--mini-h) + 18px);
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+  line-height: 1.55;
+  background:
+    radial-gradient(ellipse at 8% -5%, var(--glow-a), transparent 34rem),
+    radial-gradient(ellipse at 100% 12%, var(--glow-b), transparent 34rem),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper) 46%, var(--paper-2) 100%);
+  background-attachment: fixed;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: .75;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 34px 34px;
+  mask-image: linear-gradient(to bottom, #000 0%, #000 62%, transparent 100%);
+}
+::selection { background: var(--lime); color: var(--on-accent); }
+a { color: inherit; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+button, input, select { font: inherit; }
+button { cursor: pointer; }
+img { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+.skip {
+  position: fixed;
+  left: 12px;
+  top: -80px;
+  z-index: 200;
+  padding: 10px 14px;
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  background: var(--lime);
+  color: var(--on-accent);
+  font-weight: 800;
+}
+.skip:focus { top: 12px; }
+:focus-visible { outline: 3px solid var(--lilac); outline-offset: 3px; }
+.dolls {
+  position: fixed;
+  left: 50%;
+  bottom: -18px;
+  z-index: 0;
+  width: min(1440px, 125vw);
+  height: auto;
+  transform: translateX(-50%);
+  color: var(--ink);
+  opacity: .055;
+  pointer-events: none;
+}
+.display, h1, h2, h3, .brand, .rank, .quota, .tab, .mini-brand {
+  font-family: "Arial Black", "Segoe UI Black", Impact, sans-serif;
+}
+.hero, main, footer { position: relative; z-index: 1; }
+.hero {
+  max-width: 1240px;
+  margin: 22px auto 0;
+  padding: 20px clamp(16px, 3vw, 36px) 0;
+  overflow: hidden;
+  border: 3px solid var(--line);
+  border-radius: 32px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.hero::before {
+  content: "★";
+  position: absolute;
+  right: 22px;
+  top: -18px;
+  z-index: 0;
+  color: var(--yellow);
+  font-family: "Arial Black", sans-serif;
+  font-size: clamp(120px, 18vw, 250px);
+  line-height: 1;
+  opacity: .55;
+  transform: rotate(12deg);
+  pointer-events: none;
+}
+.hero::after {
+  content: "♥";
+  position: absolute;
+  left: 18px;
+  bottom: 38px;
+  color: var(--pink);
+  font-size: 86px;
+  line-height: 1;
+  opacity: .18;
+  transform: rotate(-10deg);
+  pointer-events: none;
+}
+.hero-topline {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+.stamp {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 2px solid var(--on-accent);
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--on-accent);
+  box-shadow: 2px 2px 0 var(--on-accent);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+.stamp.alt { background: var(--sky); }
+.stamp.alt:nth-child(3) { background: var(--yellow); }
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(260px, .75fr);
+  gap: clamp(20px, 4vw, 42px);
+  align-items: center;
+  padding-bottom: 26px;
+}
+.kicker {
+  display: inline-block;
+  margin: 0;
+  padding: 4px 11px;
+  border: 2px solid var(--on-accent);
+  border-radius: 4px;
+  background: var(--pink);
+  color: var(--on-accent);
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  transform: rotate(-1.2deg);
+}
+h1 {
+  max-width: 920px;
+  margin: .16em 0 .12em;
+  font-size: clamp(2.65rem, 7.4vw, 7.2rem);
+  line-height: .88;
+  letter-spacing: -.065em;
+  text-wrap: balance;
+}
+.hl {
+  display: inline-block;
+  padding: 0 .1em .04em;
+  border: 3px solid var(--on-accent);
+  background: var(--lime);
+  color: var(--on-accent);
+  box-shadow: 4px 4px 0 var(--on-accent);
+  line-height: .96;
+  transform: rotate(-1.5deg);
+}
+.deck {
+  max-width: 660px;
+  margin: 18px 0 0;
+  font-size: clamp(1rem, 1.45vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.5;
+}
+.stand {
+  max-width: 680px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: .8rem;
+  font-weight: 700;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 20px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 42px;
+  padding: 0 14px;
+  border: 2.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+  font-size: 1.29rem;
+  font-weight: 900;
+  line-height: 1;
+  text-decoration: none;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--line); }
+.btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--line); }
+.btn.primary { background: var(--pink); color: var(--on-accent); }
+.btn.blue { background: var(--blue); color: var(--on-accent); }
+.btn.lime { background: var(--lime); color: var(--on-accent); }
+.btn.small { height: 36px; padding: 0 11px; font-size: 1.14rem; box-shadow: 2px 2px 0 var(--line); }
+.icon-btn {
+  width: 42px;
+  min-width: 42px;
+  padding: 0;
+  font-size: 1.15rem;
+}
+.hero-card {
+  position: relative;
+  padding: 24px 18px 18px;
+  border: 2.5px solid var(--on-accent);
+  border-radius: 18px;
+  background: var(--sky);
+  color: var(--on-accent);
+  box-shadow: 5px 5px 0 var(--on-accent);
+  transform: rotate(1.3deg);
+}
+.tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  padding: 2px 13px;
+  border: 2px solid var(--on-accent);
+  background: var(--yellow);
+  color: var(--on-accent);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  transform: translateX(-50%) rotate(-3deg);
+  white-space: nowrap;
+}
+.hero-card h2 {
+  margin: 4px 0 8px;
+  font-size: 1.3rem;
+  line-height: 1.05;
+  letter-spacing: -.02em;
+}
+.hero-card ul {
+  display: grid;
+  gap: 8px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: .84rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+.hero-card li { display: flex; gap: 7px; align-items: flex-start; }
+.hero-card li::before { content: "✦"; flex: none; font-weight: 900; }
+.hero-card .mini-note {
+  margin: 14px 0 0;
+  padding-top: 10px;
+  border-top: 2px dashed var(--on-accent);
+  font-size: .72rem;
+  line-height: 1.45;
+}
+.ticker {
+  position: relative;
+  z-index: 1;
+  margin: 0 calc(-1 * clamp(16px, 3vw, 36px));
+  padding: 9px 0;
+  overflow: hidden;
+  border-top: 3px solid var(--line);
+  background: var(--ticker-bg);
+  color: var(--ticker-ink);
+}
+.ticker-track {
+  display: flex;
+  gap: 34px;
+  width: max-content;
+  font-size: .7rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  animation: ticker 38s linear infinite;
+}
+.ticker-track span { white-space: nowrap; }
+.ticker-track span::before { content: "★"; margin-right: 9px; color: var(--lime); }
+@keyframes ticker { to { transform: translateX(-50%); } }
+.mini-masthead {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 90;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  height: var(--mini-h);
+  max-height: 25vh;
+  padding: 0 max(12px, calc((100vw - 1240px) / 2));
+  border-bottom: 3px solid var(--line);
+  background: var(--paper);
+  box-shadow: 0 4px 0 rgba(0, 0, 0, .12);
+  transform: translateY(-110%);
+  transition: transform .28s ease;
+  will-change: transform;
+}
+body.mini-on .mini-masthead { transform: translateY(0); }
+.mini-brand {
+  display: inline-block;
+  flex: none;
+  color: var(--ink);
+  font-size: clamp(.88rem, 2.1vw, 1.2rem);
+  line-height: 1;
+  letter-spacing: -.04em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.mini-brand b {
+  display: inline-block;
+  padding: 0 .18em .04em;
+  border: 2px solid var(--on-accent);
+  background: var(--lime);
+  color: var(--on-accent);
+  transform: rotate(-1deg);
+}
+.mini-nav { display: flex; gap: 5px; margin-left: auto; }
+.mini-nav button, .mini-theme {
+  min-height: 32px;
+  padding: 4px 9px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+.mini-nav button:hover, .mini-theme:hover { background: var(--lime); color: var(--on-accent); }
+.mini-theme { width: 34px; padding: 0; font-size: 1.2rem; }
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 24px clamp(12px, 3vw, 24px) 120px;
+}
+.controls {
+  position: relative;
+  z-index: 1;
+  padding: clamp(14px, 2.5vw, 22px);
+  border: 2.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 13px;
+  border: 2.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: 2px 2px 0 var(--line);
+  font-size: 1.2rem;
+  letter-spacing: -.02em;
+  text-transform: uppercase;
+}
+.tab span {
+  display: inline-grid;
+  place-items: center;
+  min-width: 23px;
+  height: 23px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--paper-2);
+  color: var(--ink);
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: .65rem;
+  letter-spacing: 0;
+}
+.tab.is-active { background: var(--line); color: var(--paper); }
+.tab.is-active span { background: var(--lime); color: var(--on-accent); }
+.filter-row {
+  display: grid;
+  grid-template-columns: minmax(220px, 1.8fr) minmax(130px, .7fr) minmax(180px, .9fr) auto;
+  gap: 10px;
+  align-items: end;
+}
+.field { display: grid; gap: 4px; min-width: 0; }
+.field > span, .field > label {
+  color: var(--muted);
+  font-size: .62rem;
+  font-weight: 900;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.search-box { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.search-box input { flex: 1 1 auto; min-width: 0; }
+.search-box .btn { flex: 0 0 auto; }
+input[type="search"], select {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 11px;
+  border: 2px solid var(--line);
+  border-radius: 11px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: .88rem;
+  font-weight: 700;
+}
+input[type="search"]::placeholder { color: var(--muted); font-weight: 600; }
+.control-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 2px dashed var(--line);
+}
+.result { margin: 0; font-size: .84rem; font-weight: 900; }
+.actions { display: flex; flex-wrap: wrap; gap: 7px; }
+.note {
+  margin: 16px 2px 0;
+  color: var(--muted);
+  font-size: .84rem;
+  font-weight: 600;
+}
+.edition { margin-top: 32px; }
+.edition-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 4px solid var(--line);
+}
+.eyebrow {
+  margin: 0 0 2px;
+  color: var(--muted);
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.edition h2 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.8rem);
+  line-height: .95;
+  letter-spacing: -.05em;
+}
+.quota {
+  display: inline-block;
+  padding: 4px 10px;
+  border: 2px solid var(--on-accent);
+  border-radius: 999px;
+  background: var(--lime);
+  color: var(--on-accent);
+  box-shadow: 2px 2px 0 var(--on-accent);
+  font-size: .62rem;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.edition-sub {
+  max-width: 820px;
+  margin: 8px 0 20px;
+  color: var(--muted);
+  font-size: .9rem;
+  font-weight: 600;
+}
+.act-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(225px, 300px) minmax(0, 1fr);
+  gap: clamp(14px, 2vw, 22px);
+  margin-bottom: 24px;
+  padding: clamp(12px, 1.8vw, 18px);
+  border: 2.5px solid var(--line);
+  border-radius: 28px;
+  background: var(--card);
+  box-shadow: var(--shadow);
+}
+.act-row:nth-child(4n+2) { box-shadow: 6px 6px 0 var(--pink); }
+.act-row:nth-child(4n+3) { box-shadow: 6px 6px 0 var(--sky); }
+.act-row:nth-child(4n+4) { box-shadow: 6px 6px 0 var(--lime); }
+.video-card { position: sticky; top: calc(var(--mini-h) + 18px); align-self: start; }
+.thumb-wrap {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border: 2.5px solid var(--on-accent);
+  border-radius: 18px;
+  background: var(--on-accent);
+  box-shadow: 4px 4px 0 var(--on-accent);
+}
+.thumb-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.thumb-wrap:hover img { transform: scale(1.04); }
+.play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding-left: 3px;
+  border: 2px solid var(--on-accent);
+  border-radius: 50%;
+  background: var(--lime);
+  color: var(--on-accent);
+  box-shadow: 3px 3px 0 var(--on-accent);
+  font-size: 1rem;
+  transform: translate(-50%, -50%);
+}
+.video-info { margin-top: 11px; }
+.video-title { margin: 0; font-size: 1rem; font-weight: 900; line-height: 1.3; }
+.video-sub { margin: 3px 0 0; color: var(--muted); font-size: .8rem; font-weight: 700; line-height: 1.4; }
+.video-stats { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.stat {
+  padding: 3px 7px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: .68rem;
+  font-weight: 900;
+}
+.hype { margin-top: 10px; }
+.hype-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.hype-track {
+  height: 12px;
+  margin-top: 3px;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper-2);
+}
+.hype-fill { height: 100%; background: linear-gradient(90deg, var(--pink), var(--lilac)); }
+.act-main { min-width: 0; }
+.act-head {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.act-title-wrap { min-width: 0; }
+.act-title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  align-items: center;
+  margin: 0;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+.rank {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  min-width: 46px;
+  height: 46px;
+  padding: 0 7px;
+  border: 2.5px solid var(--on-accent);
+  border-radius: 12px;
+  background: var(--pink);
+  color: var(--on-accent);
+  box-shadow: 3px 3px 0 var(--on-accent);
+  font-size: 1.1rem;
+  line-height: 1;
+  transform: rotate(-2deg);
+}
+.flag {
+  display: inline-grid;
+  place-items: center;
+  min-width: 29px;
+  height: 23px;
+  padding: 0 6px;
+  border: 2px solid var(--on-accent);
+  border-radius: 5px;
+  background: var(--lime);
+  color: var(--on-accent);
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: .58rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+  transform: rotate(2deg);
+}
+.act-tagline {
+  max-width: 760px;
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: .92rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.facts { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+.fact {
+  padding: 3px 7px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  font-size: .68rem;
+  font-weight: 900;
+}
+.gossip-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 11px;
+  margin-top: 15px;
+}
+.gossip {
+  position: relative;
+  padding: 12px;
+  border: 2px solid var(--line);
+  border-radius: 17px;
+  background: var(--tint-1);
+  box-shadow: 3px 3px 0 var(--line);
+}
+.gossip:nth-child(2) { background: var(--tint-2); }
+.gossip:nth-child(3) { background: var(--tint-3); }
+.gossip:nth-child(4) { background: var(--tint-4); }
+.gossip-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 6px;
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.gossip-top time { color: var(--muted); }
+.cat {
+  padding: 2px 6px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+}
+.rumor {
+  padding: 2px 6px;
+  border: 1.5px solid var(--on-accent);
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--on-accent);
+}
+.gossip h4 { margin: 0 0 6px; font-size: 1.08rem; line-height: 1.3; letter-spacing: -.01em; }
+.gossip p { margin: 0; font-size: 1rem; line-height: 1.55; }
+.src { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 9px; }
+.src a {
+  padding: 3px 7px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--ink);
+  font-size: .68rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+.src a:hover { background: var(--lime); color: var(--on-accent); }
+.country-group { margin-bottom: 26px; }
+.country-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 26px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 3px solid var(--line);
+}
+.country-head h3 { margin: 0; font-size: 1.2rem; letter-spacing: -.02em; }
+.empty {
+  padding: 28px 18px;
+  border: 2px dashed var(--line);
+  border-radius: 18px;
+  background: var(--card);
+  font-weight: 800;
+  text-align: center;
+}
+.cheerdance { margin-top: 42px; }
+.cheer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.cheer-card {
+  position: relative;
+  padding: 16px;
+  border: 2.5px solid var(--line);
+  border-radius: 22px;
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+}
+.cheer-card.highlight { background: var(--lime); color: var(--on-accent); }
+.cheer-card.highlight .cheer-meta, .cheer-card.highlight .cheer-text { color: #312714; }
+.cheer-card.highlight .src a { color: var(--on-accent); }
+.cheer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 900;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+.status {
+  padding: 2px 6px;
+  border: 1.5px solid var(--on-accent);
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--on-accent);
+}
+.status.past { background: var(--paper-2); }
+.status.upcoming { background: var(--pink); }
+.cheer-card h3 { margin: 0 0 4px; font-size: 1.2rem; line-height: 1.05; letter-spacing: -.03em; }
+.cheer-region { margin: 0 0 8px; font-size: .74rem; font-weight: 900; text-transform: uppercase; letter-spacing: .06em; }
+.cheer-text { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.55; }
+footer {
+  margin-top: 40px;
+  padding: clamp(18px, 3vw, 28px);
+  border: 2.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+}
+.footer-grid { display: grid; grid-template-columns: 1.2fr .8fr; gap: 20px; }
+footer h2 { margin: 0 0 8px; font-size: 1.4rem; letter-spacing: -.03em; }
+footer p { margin: 6px 0; color: var(--muted); font-size: .75rem; font-weight: 600; }
+.source-list { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0; padding: 0; list-style: none; }
+.source-list a {
+  display: inline-block;
+  padding: 4px 8px;
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  font-size: .62rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+.source-list a:hover { background: var(--lime); color: var(--on-accent); }
+.to-top {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 3px solid var(--on-accent);
+  border-radius: 50%;
+  background: var(--pink);
+  color: var(--on-accent);
+  box-shadow: 4px 4px 0 var(--on-accent);
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.to-top.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.to-top:hover { transform: translateY(-2px); }
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 84px;
+  z-index: 120;
+  max-width: calc(100% - 28px);
+  padding: 10px 16px;
+  border: 2px solid var(--on-accent);
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 3px 3px 0 var(--on-accent);
+  font-size: .8rem;
+  font-weight: 900;
+  text-align: center;
+  opacity: 0;
+  transform: translate(-50%, 12px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+.dialog {
+  width: min(640px, calc(100% - 28px));
+  max-height: min(78vh, 680px);
+  padding: 24px;
+  overflow: auto;
+  border: 3px solid var(--line);
+  border-radius: 24px;
+  background: var(--card);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+.dialog::backdrop { background: rgba(18, 10, 28, .72); backdrop-filter: blur(3px); }
+.dialog h2 { margin: 0 0 8px; font-size: 1.7rem; letter-spacing: -.04em; }
+.dialog p { color: var(--muted); font-size: .82rem; font-weight: 600; }
+.dialog-close { position: absolute; right: 16px; top: 14px; }
+.dialog-list { display: grid; gap: 7px; margin: 14px 0; padding: 0; list-style: none; }
+.dialog-list a { display: block; padding: 9px 10px; border: 2px solid var(--line); border-radius: 10px; background: var(--paper); font-size: .8rem; font-weight: 800; text-decoration: none; }
+.dialog-list a:hover { background: var(--lime); color: var(--on-accent); }
+.snapshot-head { margin-top: 18px; }
+.snapshot .controls { margin-top: 22px; }
+.snapshot .edition { margin-top: 28px; }
+.snapshot .to-top, .snapshot .mini-masthead, .snapshot .toast { display: none !important; }
+
+html[data-theme="dark"] .hero-card {
+  border-color: var(--line);
+  background: #303034;
+  color: var(--ink);
+  box-shadow: 5px 5px 0 #0d0d0d;
+}
+html[data-theme="dark"] .hero-card .mini-note { border-top-color: var(--line); }
+html[data-theme="dark"] .stamp.alt { background: #b9b9bd; color: #151515; }
+html[data-theme="dark"] .stamp.alt:nth-child(3) { background: var(--gold); }
+html[data-theme="dark"] .status { background: #b9b9bd; color: #151515; }
+html[data-theme="dark"] .status.past { background: #8f8f93; }
+html[data-theme="dark"] .status.upcoming { background: var(--gold); }
+html[data-theme="dark"] .cheer-card.highlight .src a { background: #151515; color: var(--gold); }
+html[data-theme="dark"] .tab.is-active { background: var(--gold); color: var(--on-accent); }
+html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--gold); }
+@media (max-width: 1050px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-card { max-width: 560px; transform: rotate(.6deg); }
+  .filter-row { grid-template-columns: minmax(200px, 1.5fr) minmax(130px, .8fr) minmax(170px, 1fr); }
+  .filter-row .btn { grid-column: 1 / -1; justify-self: start; }
+  .cheer-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .act-row { grid-template-columns: 1fr; }
+  .video-card { position: static; }
+  .video-card .thumb-wrap { max-width: 560px; }
+  .gossip-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  :root { --mini-h: 54px; }
+  .hero { margin-top: 10px; padding: 12px 14px 0; border-radius: 20px; }
+  .hero-topline { gap: 5px; margin-bottom: 10px; }
+  .stamp { padding: 3px 7px; font-size: 8px; box-shadow: 1px 1px 0 var(--line); }
+  .hero-topline .stamp:nth-child(3) { display: none; }
+  .kicker { padding: 3px 8px; font-size: 9px; }
+  .hero-grid { gap: 14px; padding-bottom: 14px; }
+  .hero-grid .deck, .hero-card { display: none; }
+  h1 { font-size: clamp(2rem, 10.5vw, 3.4rem); }
+  .stand { margin-top: 6px; font-size: .68rem; line-height: 1.35; }
+  .hero-actions { margin-top: 12px; gap: 7px; }
+  .ticker { padding: 7px 0; }
+  .ticker-track { font-size: .62rem; }
+  .gossip-list { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .cheer-grid { grid-template-columns: 1fr; }
+  .mini-masthead { gap: 7px; padding-inline: 9px; }
+  .mini-brand { font-size: .78rem; }
+  .mini-nav { gap: 3px; }
+  .mini-nav button { min-height: 30px; padding: 3px 6px; font-size: .9rem; }
+  .mini-brand .brand-tail { display: none; }
+  .mini-theme { width: 30px; min-height: 30px; }
+  .tab { font-size: 1.05rem; }
+  .control-row { align-items: flex-start; }
+  .actions { width: 100%; }
+  .actions .btn { flex: 1 1 auto; }
+}
+@media (max-width: 720px) and (max-height: 700px) {
+  .ticker { display: none; }
+  h1 { font-size: clamp(1.9rem, 9.8vw, 3rem); }
+}
+@media (max-width: 560px) {
+  .wrap { padding-inline: 10px; }
+  .hero { padding-inline: 14px; }
+  h1 { font-size: clamp(2rem, 10.8vw, 3.2rem); }
+  .filter-row { grid-template-columns: 1fr; }
+  .filter-row .btn { grid-column: auto; justify-self: stretch; }
+  .tabs { display: grid; grid-template-columns: 1fr 1fr; }
+  .tab { justify-content: center; padding-inline: 8px; font-size: 1.05rem; }
+  .tab span { display: none; }
+  .act-row { padding: 11px; border-radius: 22px; }
+  .act-title { font-size: 1.5rem; }
+  .rank { min-width: 40px; height: 40px; font-size: .95rem; }
+  .gossip { padding: 11px; }
+  .to-top { right: 12px; bottom: 12px; width: 50px; height: 50px; }
+  .toast { bottom: 76px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<svg class="dolls" viewBox="0 0 1400 300" aria-hidden="true" focusable="false">
+  <g fill="currentColor">
+    <g transform="translate(40 18)">
+      <circle cx="60" cy="64" r="35"/>
+      <path d="M25 64c0-34 15-54 35-54s35 20 35 54c-8-15-19-22-35-22s-27 7-35 22Z"/>
+      <path d="M13 300c0-124 20-190 47-190s47 66 47 190Z"/>
+      <path d="M20 166c-28-22-44-52-39-84 18 14 39 37 54 64Z"/>
+      <path d="M100 166c28-22 44-52 39-84-18 14-39 37-54 64Z"/>
+    </g>
+    <g transform="translate(225 38)">
+      <circle cx="58" cy="62" r="34"/>
+      <path d="M23 67c-3-38 13-59 35-59 23 0 37 23 33 59-5-14-10-22-19-27-7 9-24 13-42 10-2 6-4 12-7 17Z"/>
+      <path d="M12 300c0-119 19-184 46-184s46 65 46 184Z"/>
+      <path d="M18 164c-27-24-42-51-37-83 17 15 38 38 53 64Z"/>
+      <path d="M100 164c27-24 42-51 37-83-17 15-38 38-53 64Z"/>
+    </g>
+    <g transform="translate(410 10)">
+      <circle cx="58" cy="66" r="36"/>
+      <path d="M20 70c-2-43 16-65 38-65 24 0 40 24 37 65-5-19-17-29-37-29-19 0-32 10-38 29Z"/>
+      <path d="M10 300c0-125 20-192 48-192s48 67 48 192Z"/>
+      <path d="M17 166c-29-23-45-53-39-86 18 15 40 38 55 65Z"/>
+      <path d="M102 166c29-23 45-53 39-86-18 15-40 38-55 65Z"/>
+    </g>
+    <g transform="translate(600 30)">
+      <circle cx="60" cy="62" r="34"/>
+      <path d="M26 62c0-34 14-52 34-52s34 18 34 52c-8-14-18-20-34-20s-26 6-34 20Z"/>
+      <path d="M14 300c0-118 19-183 46-183s46 65 46 183Z"/>
+      <path d="M20 164c-27-22-43-50-38-82 17 14 38 36 53 62Z"/>
+      <path d="M100 164c27-22 43-50 38-82-17 14-38 36-53 62Z"/>
+    </g>
+    <g transform="translate(790 42)">
+      <circle cx="58" cy="60" r="33"/>
+      <path d="M24 65c-4-37 12-57 34-57 23 0 38 22 34 57-5-13-10-20-19-25-8 8-24 12-42 9-2 6-4 11-7 16Z"/>
+      <path d="M12 300c0-116 19-180 46-180s46 64 46 180Z"/>
+      <path d="M19 162c-27-23-42-50-37-81 17 15 38 37 53 63Z"/>
+      <path d="M99 162c27-23 42-50 37-81-17 15-38 37-53 63Z"/>
+    </g>
+    <g transform="translate(975 14)">
+      <circle cx="60" cy="66" r="36"/>
+      <path d="M21 70c-2-43 16-65 39-65 24 0 41 24 38 65-6-19-18-29-38-29-19 0-32 10-39 29Z"/>
+      <path d="M11 300c0-124 20-191 49-191s49 67 49 191Z"/>
+      <path d="M18 166c-29-23-45-52-39-85 18 15 40 38 55 65Z"/>
+      <path d="M103 166c29-23 45-52 39-85-18 15-40 38-55 65Z"/>
+    </g>
+    <g transform="translate(1165 34)">
+      <circle cx="58" cy="62" r="34"/>
+      <path d="M24 62c0-34 14-52 34-52s34 18 34 52c-8-14-18-20-34-20s-26 6-34 20Z"/>
+      <path d="M12 300c0-118 19-183 46-183s46 65 46 183Z"/>
+      <path d="M18 164c-27-22-43-50-38-82 17 14 38 36 53 62Z"/>
+      <path d="M100 164c27-22 43-50 38-82-17 14-38 36-53 62Z"/>
+    </g>
+  </g>
+</svg>
+
+<header class="hero" id="top">
+  <div class="hero-topline">
+    <span class="stamp" id="issueStamp">Ausgabe 21.10.2026</span>
+    <span class="stamp alt">Asia · K-Pop · Cheerdance</span>
+    <span class="stamp alt">100 % deutsch</span>
+  </div>
+  <div class="hero-grid">
+    <div>
+      <p class="kicker">Ricky's tägliche Portion Hype</p>
+      <h1>Ricky's <span class="hl">K-POP</span> Gazette</h1>
+      <p class="deck">K-Pop, Klatsch &amp; Cheerdance: die 40 lautesten Acts aus Südkorea, China, Japan, Taiwan, Südostasien und Indien – mit zwei frischen Meldungen pro Act, ehrlichen Quellen und ganz viel Bühnenstaub.</p>
+      <p class="stand" id="stand">Redaktionsstand wird geladen …</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#controls">Loslesen</a>
+        <button class="btn icon-btn" data-theme-toggle type="button" aria-label="Zwischen Hell und Lady-Dark wechseln" title="Hell / Lady-Dark">◐</button>
+      </div>
+    </div>
+    <aside class="hero-card" aria-label="Heute im Blatt">
+      <span class="tape">Heute im Blatt</span>
+      <h2>Die Themen mit dem meisten Kribbeln</h2>
+      <ul id="heroHighlights">
+        <li>Top20, Gossip und Quellen werden geladen …</li>
+      </ul>
+      <p class="mini-note">Kein Lizenz-Presseportal: Wir verlinken Quellen, kennzeichnen Gerüchte und schreiben in deiner Sprache. Zahlen sind Momentaufnahmen.</p>
+    </aside>
+  </div>
+  <div class="ticker" aria-label="Schlagzeilen">
+    <div class="ticker-track" id="tickerTrack"></div>
+  </div>
+</header>
+
+<div class="mini-masthead" id="miniMasthead" aria-hidden="true" inert>
+  <a class="mini-brand" href="#top" data-scroll-top>Ricky's <b>K-POP</b><span class="brand-tail"> Gazette</span></a>
+  <nav class="mini-nav" aria-label="Schnellnavigation">
+    <button type="button" data-jump="kpop">K-Pop</button>
+    <button type="button" data-jump="asia">Asien</button>
+    <button type="button" data-jump="cheerdance">Cheer</button>
+  </nav>
+  <button class="mini-theme" data-theme-toggle type="button" aria-label="Zwischen Hell und Lady-Dark wechseln" title="Hell / Lady-Dark">◐</button>
+</div>
+
+<main class="wrap" id="main">
+  <section class="controls" id="controls" aria-label="Suche und Filter">
+    <div class="tabs" role="tablist" aria-label="Ausgaben">
+      <button class="tab is-active" id="kpopTab" type="button" role="tab" data-tab="kpop" aria-selected="true" aria-controls="edition-kpop">K-Pop Top20 <span id="kpopCount">20</span></button>
+      <button class="tab" id="asiaTab" type="button" role="tab" data-tab="asia" aria-selected="false" aria-controls="edition-asia">Asia Top20 <span id="asiaCount">20</span></button>
+    </div>
+    <div class="filter-row">
+      <div class="field">
+        <label for="searchInput">Suche</label>
+        <div class="search-box">
+          <input type="search" id="searchInput" placeholder="Act, Schlagzeile, Land, Agentur …" autocomplete="off">
+          <button class="btn small blue" type="button" id="searchBtn">Suchen</button>
+        </div>
+      </div>
+      <label class="field">
+        <span>Land</span>
+        <select id="countryFilter" aria-label="Nach Land filtern"></select>
+      </label>
+      <label class="field">
+        <span>Act</span>
+        <select id="artistFilter" aria-label="Nach Act filtern"></select>
+      </label>
+      <button class="btn small" type="button" id="resetFilters">Zurücksetzen</button>
+    </div>
+    <div class="control-row">
+      <p class="result" id="resultCount" role="status" aria-live="polite">Wird geladen …</p>
+      <div class="actions">
+        <button class="btn small" type="button" id="refreshBtn">↻ Aktualisieren</button>
+        <button class="btn small" type="button" id="sourcesBtn">Quellen</button>
+        <button class="btn small" type="button" id="shareBtn">Link teilen</button>
+        <button class="btn small primary" type="button" id="exportBtn">Snapshot speichern</button>
+      </div>
+    </div>
+  </section>
+  <p class="note">Sortiert nach Hype aus YouTube-Views und -Likes (50/50, innerhalb der Gruppe normalisiert). Beide Zahlen stehen immer direkt am Video. <strong>Gerücht</strong> heißt: nicht bestätigt, nur als Einordnung.</p>
+
+  <section class="edition" id="edition-kpop" role="tabpanel" aria-labelledby="kpopTab">
+    <div class="edition-head">
+      <div>
+        <p class="eyebrow">Platz 1–20 · Südkorea</p>
+        <h2>K-Pop Top20</h2>
+      </div>
+      <span class="quota">20 Acts</span>
+    </div>
+    <p class="edition-sub">Girlgroups, Boygroups, Solos: die komplette K-Pop-Spitze, frisch nach Views und Likes sortiert. Jede Zeile zeigt das offizielle Video und zwei aktuelle Meldungen.</p>
+    <div id="kpopList" class="rows"></div>
+  </section>
+
+  <section class="edition" id="edition-asia" role="tabpanel" aria-labelledby="asiaTab" hidden>
+    <div class="edition-head">
+      <div>
+        <p class="eyebrow">Platz 1–20 · sieben Regionen</p>
+        <h2>Asia Top20</h2>
+      </div>
+      <span class="quota">Quoten sichtbar</span>
+    </div>
+    <p class="edition-sub">China 5, Japan 5, Taiwan 2, Ozeanien &amp; Insel-Asien 2, Thailand 2, Mongolei 2, Indien 2. Innerhalb jedes Landes entscheidet der Hype; die Quoten bleiben sichtbar.</p>
+    <div id="asiaList" class="rows"></div>
+  </section>
+
+  <section class="cheerdance" id="cheerdance">
+    <div class="edition-head">
+      <div>
+        <p class="eyebrow">Bühne, Pom &amp; Kultur</p>
+        <h2>Cheerdance &amp; Dance</h2>
+      </div>
+      <span class="quota">8 + 1 Ausnahme</span>
+    </div>
+    <p class="edition-sub">Aktuelle Cheer-Momente aus Asien – plus eine lokale Tanzbrücke aus Sachsen. Wir labeln sauber: Proficheer, Cheerdance, Cheerleading und Tanztheater sind nicht dasselbe.</p>
+    <div id="cheerGrid" class="cheer-grid"></div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <h2>Über diese Ausgabe</h2>
+        <p>Ricky's K-POP Gazette ist ein privates, nicht kommerzielles Leseprojekt. Alle Marken, Videos und Fotos gehören den jeweiligen Rechteinhabern. Thumbnails werden von YouTube geladen und verlinken auf das Original.</p>
+        <p id="footerStand">Redaktionsstand wird geladen …</p>
+        <p><strong>Hinweis:</strong> Dating- oder Beziehungsgerüchte sind ausdrücklich als Gerücht markiert. Keine Körper-, Diät- oder Skandal-Details.</p>
+      </div>
+      <div>
+        <h2>Quellen</h2>
+        <ul class="source-list" id="footerSources"></ul>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<button class="to-top" id="toTop" type="button" aria-label="Nach oben" title="Nach oben" aria-hidden="true" inert>↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<dialog class="dialog" id="sourcesDialog">
+  <form method="dialog">
+    <button class="btn small dialog-close" type="submit">Schließen</button>
+  </form>
+  <h2>Quellen &amp; Methode</h2>
+  <p>Die Ausgabe kombiniert offizielle YouTube-Zahlen mit redaktionell ausgewählten Meldungen. Soridata und Naver VIBE dienen nur als Cross-Check – dort wird nicht gescrapt.</p>
+  <ul class="dialog-list" id="sourcesList"></ul>
+  <p id="dialogStand"></p>
+</dialog>
+
+<script src="data.js"></script>
+<script>
+(function () {
+  'use strict';
+
+  const THEME_KEY = 'rkg-theme';
+  const TAB_KEY = 'rkg-tab';
+  const CATEGORY_LABEL = { release: 'Release', tour: 'Tour', award: 'Award', fashion: 'Fashion', fandom: 'Fandom', collab: 'Collab' };
+  const COUNTRY_ORDER = ['China', 'Japan', 'Taiwan', 'Ozeanien & Insel-Asien', 'Thailand', 'Mongolei', 'Indien'];
+  const state = { tab: 'kpop', q: '', country: '', artist: '' };
+  let DATA = null;
+  let activeRefresh = false;
+  let toastTimer = 0;
+  let scrollQueued = false;
+
+  const $ = (selector, root = document) => root.querySelector(selector);
+  const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+
+  function escapeHtml(value) {
+    return String(value == null ? '' : value).replace(/[&<>"']/g, (character) => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[character]));
+  }
+
+  function safeUrl(value) {
+    try {
+      const url = new URL(value, location.href);
+      return url.protocol === 'http:' || url.protocol === 'https:' ? url.href : '#';
+    } catch (error) {
+      return '#';
+    }
+  }
+
+  function normalize(value) {
+    return String(value == null ? '' : value).toLocaleLowerCase('de').replace(/\s+/g, ' ').trim();
+  }
+
+  function number(value) {
+    return new Intl.NumberFormat('de-DE').format(Number(value) || 0);
+  }
+
+  function dateLabel(value) {
+    const date = new Date(String(value) + 'T12:00:00');
+    return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleDateString('de-DE', { day: '2-digit', month: 'short', year: 'numeric' });
+  }
+
+  function standLabel(value) {
+    const date = new Date(value);
+    return Number.isNaN(date.getTime()) ? String(value) : date.toLocaleString('de-DE', { dateStyle: 'medium', timeStyle: 'short' }) + ' Uhr';
+  }
+
+  function toast(message) {
+    const element = $('#toast');
+    element.textContent = message;
+    element.classList.add('is-visible');
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(() => element.classList.remove('is-visible'), 3200);
+  }
+
+  function setTheme(theme, announce) {
+    const next = theme === 'dark' ? 'dark' : 'light';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem(THEME_KEY, next); } catch (error) {}
+    $$('[data-theme-toggle]').forEach((button) => {
+      button.textContent = next === 'dark' ? '☀' : '◐';
+      button.setAttribute('aria-pressed', next === 'dark' ? 'true' : 'false');
+      button.title = next === 'dark' ? 'Zu Hell wechseln' : 'Lady-Dark einschalten';
+    });
+    if (announce) toast(next === 'dark' ? 'Lady-Dark ist an.' : 'Hell ist an.');
+  }
+
+  function actSearchText(act) {
+    return normalize([
+      act.name, act.country, act.type, act.agency, act.badge, act.tagline,
+      act.video.title, act.video.channel, act.video.released,
+      ...act.gossip.flatMap((item) => [item.title, item.text, item.source, item.category, item.rumor ? 'Gerücht' : 'bestätigt'])
+    ].join(' '));
+  }
+
+  function prepare(data) {
+    data.acts.forEach((act) => {
+      act._search = actSearchText(act);
+      act._gossip = Array.isArray(act.gossip) ? act.gossip : [];
+    });
+    return data;
+  }
+
+  function sortedByHype(acts) {
+    return acts.slice().sort((a, b) => (b.hype - a.hype) || a.name.localeCompare(b.name, 'de'));
+  }
+
+  function filteredActs(group) {
+    const query = normalize(state.q);
+    return DATA.acts.filter((act) => act.group === group)
+      .filter((act) => !query || act._search.includes(query))
+      .filter((act) => !state.country || act.country === state.country)
+      .filter((act) => !state.artist || act.name === state.artist);
+  }
+
+  function renderRow(act, rank) {
+    const badge = act.badge ? '<span class="flag" title="Markt/Badge">' + escapeHtml(act.badge) + '</span>' : '';
+    const gossip = act._gossip.map((item) => {
+      const category = CATEGORY_LABEL[item.category] || item.category || 'News';
+      const game = item.rumor ? '<span class="rumor">Gerücht</span>' : '';
+      const query = encodeURIComponent(act.name + ' ' + item.title);
+      return '<article class="gossip">' +
+        '<div class="gossip-top"><time datetime="' + escapeHtml(item.date) + '">' + escapeHtml(dateLabel(item.date)) + '</time><span class="cat">' + escapeHtml(category) + '</span>' + game + '</div>' +
+        '<h4>' + escapeHtml(item.title) + '</h4>' +
+        '<p>' + escapeHtml(item.text) + '</p>' +
+        '<div class="src"><a href="' + escapeHtml(safeUrl(item.sourceUrl)) + '" target="_blank" rel="noopener noreferrer">Quelle: ' + escapeHtml(item.source) + '</a><a href="https://news.google.com/search?q=' + query + '" target="_blank" rel="noopener noreferrer">Mehr dazu</a></div>' +
+        '</article>';
+    }).join('');
+
+    return '<article class="act-row" data-name="' + escapeHtml(act.name) + '" data-country="' + escapeHtml(act.country) + '" data-tab="' + escapeHtml(act.group) + '" data-search="' + escapeHtml(act._search) + '">' +
+      '<div class="video-card">' +
+        '<a class="thumb-wrap" href="' + escapeHtml(safeUrl(act.video.url)) + '" target="_blank" rel="noopener noreferrer" aria-label="' + escapeHtml(act.name + ': ' + act.video.title + ' auf YouTube öffnen') + '">' +
+          '<img src="' + escapeHtml(safeUrl(act.video.thumb)) + '" alt="Vorschaubild zu ' + escapeHtml(act.video.title) + ' von ' + escapeHtml(act.name) + '" loading="' + (rank <= 2 ? 'eager' : 'lazy') + '" width="480" height="270" decoding="async">' +
+          '<span class="play" aria-hidden="true">▶</span>' +
+        '</a>' +
+        '<div class="video-info">' +
+          '<p class="video-title">' + escapeHtml(act.video.title) + '</p>' +
+          '<p class="video-sub">' + escapeHtml(act.video.channel) + ' · ' + escapeHtml(act.video.released) + '</p>' +
+          '<div class="video-stats"><span class="stat">' + number(act.video.views) + ' Views</span><span class="stat">' + number(act.video.likes) + ' Likes</span></div>' +
+          '<div class="hype"><div class="hype-top"><span>Hype</span><span>' + escapeHtml(String(act.hype).replace('.', ',')) + ' / 100</span></div><div class="hype-track"><div class="hype-fill" style="width:' + Math.max(0, Math.min(100, Number(act.hype) || 0)) + '%"></div></div></div>' +
+        '</div>' +
+      '</div>' +
+      '<div class="act-main">' +
+        '<div class="act-head"><span class="rank" aria-label="Platz ' + rank + '">' + String(rank).padStart(2, '0') + '</span><div class="act-title-wrap"><h3 class="act-title">' + escapeHtml(act.name) + badge + '</h3><p class="act-tagline">' + escapeHtml(act.tagline) + '</p><div class="facts"><span class="fact">' + escapeHtml(act.country) + '</span><span class="fact">' + escapeHtml(act.type) + '</span><span class="fact">' + escapeHtml(act.agency) + '</span></div></div></div>' +
+        '<div class="gossip-list">' + gossip + '</div>' +
+      '</div>' +
+    '</article>';
+  }
+
+  function emptyState() {
+    return '<div class="empty">Keine Treffer. Ändere die Suche oder setze die Filter zurück.</div>';
+  }
+
+  function updateTabButtons() {
+    $$('.tab').forEach((button) => {
+      const active = button.dataset.tab === state.tab;
+      button.classList.toggle('is-active', active);
+      button.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    $('#edition-kpop').hidden = state.tab !== 'kpop';
+    $('#edition-asia').hidden = state.tab !== 'asia';
+  }
+
+  function optionsForGroup(group) {
+    const acts = DATA.acts.filter((act) => act.group === group);
+    let countries = Array.from(new Set(acts.map((act) => act.country)));
+    if (group === 'asia') {
+      countries = countries.sort((a, b) => {
+        const indexA = COUNTRY_ORDER.indexOf(a);
+        const indexB = COUNTRY_ORDER.indexOf(b);
+        return (indexA < 0 ? 99 : indexA) - (indexB < 0 ? 99 : indexB);
+      });
+    } else {
+      countries = countries.sort((a, b) => a.localeCompare(b, 'de'));
+    }
+    const artists = acts.slice().sort((a, b) => a.name.localeCompare(b.name, 'de'));
+    return { countries, artists };
+  }
+
+  function populateFilters() {
+    const { countries, artists } = optionsForGroup(state.tab);
+    $('#countryFilter').innerHTML = '<option value="">Alle Länder</option>' + countries.map((country) => '<option value="' + escapeHtml(country) + '">' + escapeHtml(country) + '</option>').join('');
+    $('#artistFilter').innerHTML = '<option value="">Alle Acts</option>' + artists.map((act) => '<option value="' + escapeHtml(act.name) + '">' + escapeHtml(act.name) + '</option>').join('');
+    $('#countryFilter').value = state.country;
+    $('#artistFilter').value = state.artist;
+  }
+
+  function render() {
+    if (!DATA) return;
+    updateTabButtons();
+    $('#kpopCount').textContent = DATA.acts.filter((act) => act.group === 'kpop').length;
+    $('#asiaCount').textContent = DATA.acts.filter((act) => act.group === 'asia').length;
+
+    if (state.tab === 'kpop') {
+      const acts = sortedByHype(filteredActs('kpop'));
+      $('#kpopList').innerHTML = acts.length ? acts.map((act, index) => renderRow(act, index + 1)).join('') : emptyState();
+      $('#resultCount').textContent = acts.length + ' Acts · ' + acts.reduce((sum, act) => sum + act._gossip.length, 0) + ' Meldungen';
+    } else {
+      const all = filteredActs('asia');
+      const groups = COUNTRY_ORDER.map((country) => ({ country, acts: sortedByHype(all.filter((act) => act.country === country)) }))
+        .concat(Array.from(new Set(all.map((act) => act.country))).filter((country) => !COUNTRY_ORDER.includes(country)).map((country) => ({ country, acts: sortedByHype(all.filter((act) => act.country === country)) })))
+        .filter((group) => group.acts.length);
+      let rank = 0;
+      $('#asiaList').innerHTML = groups.length ? groups.map((group) => {
+        const quota = DATA.meta && DATA.meta.asiaQuota && DATA.meta.asiaQuota[group.country];
+        const rows = group.acts.map((act) => renderRow(act, ++rank)).join('');
+        return '<section class="country-group" data-country="' + escapeHtml(group.country) + '"><div class="country-head"><h3>' + escapeHtml(group.country) + '</h3><span class="quota">' + group.acts.length + ' / ' + (quota == null ? group.acts.length : quota) + ' Acts</span></div>' + rows + '</section>';
+      }).join('') : emptyState();
+      $('#resultCount').textContent = all.length + ' Acts · ' + all.reduce((sum, act) => sum + act._gossip.length, 0) + ' Meldungen';
+    }
+  }
+
+  function switchTab(tab, scroll) {
+    if (tab !== 'kpop' && tab !== 'asia') return;
+    state.tab = tab;
+    state.country = '';
+    state.artist = '';
+    try { localStorage.setItem(TAB_KEY, tab); } catch (error) {}
+    populateFilters();
+    render();
+    if (scroll) {
+      const target = tab === 'kpop' ? $('#edition-kpop') : $('#edition-asia');
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function renderTicker() {
+    const items = DATA.acts.flatMap((act) => act._gossip.map((item) => ({ act: act.name, item })))
+      .sort((a, b) => String(b.item.date).localeCompare(String(a.item.date)))
+      .slice(0, 8);
+    const content = items.map(({ act, item }) => '<span>' + escapeHtml(act + ': ' + item.title) + '</span>').join('');
+    $('#tickerTrack').innerHTML = content + content;
+  }
+
+  function renderHighlights() {
+    const kpop = sortedByHype(DATA.acts.filter((act) => act.group === 'kpop')).slice(0, 3).map((act) => act.name);
+    const asia = sortedByHype(DATA.acts.filter((act) => act.group === 'asia')).slice(0, 3).map((act) => act.name);
+    $('#heroHighlights').innerHTML = [
+      '<li>K-Pop-Spitze: ' + escapeHtml(kpop.join(' · ')) + '</li>',
+      '<li>Asia-Spitze: ' + escapeHtml(asia.join(' · ')) + '</li>',
+      '<li>Cheerdance: Dance Worlds, UAAP und Sachsen × Taiwan</li>'
+    ].join('');
+  }
+
+  function renderSources() {
+    const sources = (DATA.meta && DATA.meta.sources) || [];
+    const markup = sources.map((source) => '<li><a href="' + escapeHtml(safeUrl(source.url)) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(source.label) + '</a></li>').join('');
+    $('#footerSources').innerHTML = markup;
+    $('#sourcesList').innerHTML = markup;
+  }
+
+  function renderMeta() {
+    const issue = new Date(DATA.stand);
+    const issueText = Number.isNaN(issue.getTime()) ? '' : issue.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    $('#issueStamp').textContent = 'Ausgabe ' + (issueText || '2026');
+    $('#stand').textContent = 'Stand: ' + standLabel(DATA.stand);
+    $('#footerStand').textContent = 'Redaktionsstand: ' + standLabel(DATA.stand) + '.';
+    $('#dialogStand').textContent = 'Stand: ' + standLabel(DATA.stand) + '. YouTube-Zahlen sind Momentaufnahmen.';
+  }
+
+  function installData(data) {
+    if (!data || !Array.isArray(data.acts)) return;
+    DATA = prepare(data);
+    if (!DATA.meta) DATA.meta = {};
+    if (!DATA.meta.sources) DATA.meta.sources = [];
+    if (!COUNTRY_ORDER.includes(state.country)) state.country = '';
+    if (state.artist && !DATA.acts.some((act) => act.name === state.artist)) state.artist = '';
+    populateFilters();
+    renderMeta();
+    renderTicker();
+    renderHighlights();
+    renderSources();
+    render();
+  }
+
+  function refreshData() {
+    if (activeRefresh) return;
+    activeRefresh = true;
+    const button = $('#refreshBtn');
+    const previous = button.textContent;
+    button.disabled = true;
+    button.textContent = '↻ Lädt …';
+    const script = document.createElement('script');
+    script.src = 'data.js?t=' + Date.now();
+    script.onload = () => {
+      if (window.KPOPETTE_DATA) {
+        installData(window.KPOPETTE_DATA);
+        toast('Daten und YouTube-Zahlen aktualisiert.');
+      } else {
+        toast('Keine neuen Daten gefunden.');
+      }
+      script.remove();
+      activeRefresh = false;
+      button.disabled = false;
+      button.textContent = previous;
+    };
+    script.onerror = () => {
+      script.remove();
+      activeRefresh = false;
+      button.disabled = false;
+      button.textContent = previous;
+      toast('Aktualisieren nicht möglich. Die letzte Ausgabe bleibt sichtbar.');
+    };
+    document.body.appendChild(script);
+  }
+
+  function snapshotRows(group) {
+    if (group === 'kpop') {
+      return sortedByHype(DATA.acts.filter((act) => act.group === 'kpop')).map((act, index) => renderRow(act, index + 1)).join('');
+    }
+    let rank = 0;
+    return COUNTRY_ORDER.map((country) => {
+      const acts = sortedByHype(DATA.acts.filter((act) => act.group === 'asia' && act.country === country));
+      if (!acts.length) return '';
+      return '<section class="country-group" data-country="' + escapeHtml(country) + '"><div class="country-head"><h3>' + escapeHtml(country) + '</h3><span class="quota">' + acts.length + ' Acts</span></div>' + acts.map((act) => renderRow(act, ++rank)).join('') + '</section>';
+    }).join('');
+  }
+
+  function snapshotOptions() {
+    const countries = Array.from(new Set(DATA.acts.map((act) => act.country))).sort((a, b) => {
+      const indexA = COUNTRY_ORDER.indexOf(a);
+      const indexB = COUNTRY_ORDER.indexOf(b);
+      return (indexA < 0 ? 99 : indexA) - (indexB < 0 ? 99 : indexB) || a.localeCompare(b, 'de');
+    });
+    const artists = DATA.acts.slice().sort((a, b) => a.name.localeCompare(b.name, 'de'));
+    return {
+      countries: countries.map((country) => '<option value="' + escapeHtml(country) + '">' + escapeHtml(country) + '</option>').join(''),
+      artists: artists.map((act) => '<option value="' + escapeHtml(act.name) + '">' + escapeHtml(act.name) + '</option>').join('')
+    };
+  }
+
+  function buildSnapshot() {
+    const theme = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
+    const options = snapshotOptions();
+    const styles = $('#siteStyles').textContent;
+    const sources = ((DATA.meta && DATA.meta.sources) || []).map((source) => '<li><a href="' + escapeHtml(safeUrl(source.url)) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(source.label) + '</a></li>').join('');
+    const stand = standLabel(DATA.stand);
+    return '<!DOCTYPE html>\n<html lang="de" data-theme="' + theme + '">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width,initial-scale=1">\n<meta name="color-scheme" content="light dark">\n<title>Ricky\'s K-POP Gazette – Snapshot</title>\n<style>' + styles + '\n.snapshot .hero-actions{display:none}\n.snapshot .controls{position:static}\n.snapshot .exp-empty{margin-top:14px}\n</style>\n</head>\n<body class="snapshot">\n<header class="hero snapshot-head">\n<div class="hero-topline"><span class="stamp">Snapshot</span><span class="stamp alt">' + escapeHtml(stand) + '</span></div>\n<p class="kicker">Ricky\'s tägliche Portion Hype</p>\n<h1>Ricky\'s <span class="hl">K-POP</span> Gazette</h1>\n<p class="deck">K-Pop, Klatsch &amp; Cheerdance – die komplette Ausgabe mit allen 40 Acts. Offline lesbar, Filter funktionieren, alle Quellen bleiben verlinkt.</p>\n<p class="stand">Stand: ' + escapeHtml(stand) + ' · Snapshot ohne Live-Aktualisierung.</p>\n</header>\n<main class="wrap">\n<section class="controls" aria-label="Snapshot-Filter">\n<div class="tabs" role="tablist" aria-label="Ausgaben">\n<button class="tab is-active" type="button" data-exp-tab="kpop">K-Pop Top20 <span>20</span></button>\n<button class="tab" type="button" data-exp-tab="asia">Asia Top20 <span>20</span></button>\n</div>\n<div class="filter-row">\n<div class="field"><label for="expSearch">Suche</label><div class="search-box"><input type="search" id="expSearch" placeholder="Act, Schlagzeile, Land …"><button class="btn small blue" type="button" id="expSearchBtn">Suchen</button></div></div>\n<label class="field"><span>Land</span><select id="expCountry"><option value="">Alle Länder</option>' + options.countries + '</select></label>\n<label class="field"><span>Act</span><select id="expArtist"><option value="">Alle Acts</option>' + options.artists + '</select></label>\n<button class="btn small" type="button" id="expReset">Zurücksetzen</button>\n</div>\n<div class="control-row"><p class="result" id="expCount"></p><div class="actions"><button class="btn small primary" type="button" onclick="window.print()">Drucken</button></div></div>\n</section>\n<section class="edition exp-edition" data-tab="kpop" id="exp-kpop"><div class="edition-head"><div><p class="eyebrow">Platz 1–20 · Südkorea</p><h2>K-Pop Top20</h2></div><span class="quota">20 Acts</span></div><p class="edition-sub">Sortiert nach YouTube-Views und -Likes.</p><div class="exp-rows">' + snapshotRows('kpop') + '</div></section>\n<section class="edition exp-edition" data-tab="asia" id="exp-asia" hidden><div class="edition-head"><div><p class="eyebrow">Platz 1–20 · sieben Regionen</p><h2>Asia Top20</h2></div><span class="quota">Quoten sichtbar</span></div><p class="edition-sub">Innerhalb jedes Landes nach Hype sortiert.</p><div class="exp-rows">' + snapshotRows('asia') + '</div></section>\n<footer><div class="footer-grid"><div><h2>Über diesen Snapshot</h2><p>Offline-Ausgabe von Ricky\'s K-POP Gazette. Alle Links führen zu den Originalquellen. Thumbnails werden von YouTube geladen.</p><p>Stand: ' + escapeHtml(stand) + '</p></div><div><h2>Quellen</h2><ul class="source-list">' + sources + '</ul></div></div></footer>\n</main>\n<script>\n(function(){\nvar state={tab:"kpop"};\nvar $=function(s){return document.querySelector(s)};\nvar $$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};\nfunction norm(v){return String(v==null?"":v).toLocaleLowerCase("de").replace(/\\s+/g," ").trim()}\nfunction apply(){\n  var q=norm($("#expSearch").value), country=$("#expCountry").value, artist=$("#expArtist").value;\n  $$(".act-row").forEach(function(row){\n    var ok=(!q||row.dataset.search.indexOf(q)!==-1)&&(!country||row.dataset.country===country)&&(!artist||row.dataset.name===artist);\n    row.hidden=!ok;\n  });\n  $$(".country-group").forEach(function(group){\n    var visible=Array.prototype.some.call(group.querySelectorAll(".act-row"),function(row){return !row.hidden});\n    group.hidden=!visible;\n  });\n  $$(".exp-edition").forEach(function(section){\n    var active=section.dataset.tab===state.tab;\n    section.hidden=!active;\n    var visible=active?Array.prototype.filter.call(section.querySelectorAll(".act-row"),function(row){return !row.hidden}).length:0;\n    if(active) $("#expCount").textContent=visible+" Acts · Snapshot";\n  });\n}\nfunction setTab(tab){\n  state.tab=tab;\n  $$("[data-exp-tab]").forEach(function(button){\n    var active=button.dataset.expTab===tab;\n    button.classList.toggle("is-active",active);\n    button.setAttribute("aria-selected",active?"true":"false");\n  });\n  apply();\n}\n$$("[data-exp-tab]").forEach(function(button){button.addEventListener("click",function(){setTab(button.dataset.expTab)})});\n["expSearch","expCountry","expArtist"].forEach(function(id){var el=document.getElementById(id);el.addEventListener(id==="expSearch"?"input":"change",apply)});\n$("#expSearchBtn").addEventListener("click",apply);\n$("#expSearch").addEventListener("keydown",function(event){if(event.key==="Enter"){event.preventDefault();apply()}});\n$("#expReset").addEventListener("click",function(){$("#expSearch").value="";$("#expCountry").value="";$("#expArtist").value="";apply()});\napply();\n})();\n<\/script>\n</body>\n</html>';
+  }
+
+  function downloadSnapshot() {
+    if (!DATA) return;
+    try {
+      const html = buildSnapshot();
+      const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      const date = new Date(DATA.stand);
+      const stamp = Number.isNaN(date.getTime()) ? '2026-10-21' : date.toISOString().slice(0, 10);
+      link.href = url;
+      link.download = 'rickys-k-pop-gazette-' + stamp + '.html';
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 1500);
+      toast('Snapshot gespeichert – eine Datei, alle 40 Acts.');
+    } catch (error) {
+      toast('Snapshot konnte nicht erstellt werden.');
+    }
+  }
+
+  async function sharePage() {
+    const shareData = {
+      title: "Ricky's K-POP Gazette",
+      text: 'K-Pop, Klatsch & Cheerdance – die aktuelle Ausgabe.',
+      url: location.href
+    };
+    if (navigator.share) {
+      try { await navigator.share(shareData); return; } catch (error) { if (error && error.name === 'AbortError') return; }
+    }
+    try {
+      await navigator.clipboard.writeText(location.href);
+      toast('Link kopiert.');
+    } catch (error) {
+      window.prompt('Link kopieren:', location.href);
+    }
+  }
+
+  function runSearch() {
+    state.q = $('#searchInput').value;
+    render();
+    const query = state.q.trim();
+    toast(query ? 'Suche angewendet: ' + $('#resultCount').textContent + '.' : 'Alle Acts werden angezeigt.');
+  }
+
+  function bindEvents() {
+    $$('.tab').forEach((button) => button.addEventListener('click', () => switchTab(button.dataset.tab, false)));
+    $('#searchInput').addEventListener('input', (event) => { state.q = event.target.value; render(); });
+    $('#searchInput').addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault();
+        runSearch();
+      }
+    });
+    $('#searchBtn').addEventListener('click', runSearch);
+    $('#countryFilter').addEventListener('change', (event) => { state.country = event.target.value; render(); });
+    $('#artistFilter').addEventListener('change', (event) => { state.artist = event.target.value; render(); });
+    $('#resetFilters').addEventListener('click', () => {
+      state.q = '';
+      state.country = '';
+      state.artist = '';
+      $('#searchInput').value = '';
+      populateFilters();
+      render();
+      toast('Filter zurückgesetzt.');
+    });
+    $('#refreshBtn').addEventListener('click', refreshData);
+    $('#exportBtn').addEventListener('click', downloadSnapshot);
+    $('#shareBtn').addEventListener('click', sharePage);
+    $('#sourcesBtn').addEventListener('click', () => {
+      const dialog = $('#sourcesDialog');
+      if (typeof dialog.showModal === 'function') dialog.showModal();
+      else dialog.setAttribute('open', '');
+    });
+    $('#sourcesDialog').addEventListener('click', (event) => {
+      if (event.target === $('#sourcesDialog')) $('#sourcesDialog').close();
+    });
+    $$('[data-theme-toggle]').forEach((button) => button.addEventListener('click', () => {
+      setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark', true);
+    }));
+    $$('[data-jump]').forEach((button) => button.addEventListener('click', () => {
+      const target = button.dataset.jump;
+      if (target === 'cheerdance') $('#cheerdance').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      else switchTab(target === 'kpop' ? 'kpop' : 'asia', true);
+    }));
+    $$('[data-scroll-top]').forEach((link) => link.addEventListener('click', (event) => {
+      event.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }));
+    $('#toTop').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    window.addEventListener('scroll', queueScroll, { passive: true });
+    window.addEventListener('resize', queueScroll, { passive: true });
+  }
+
+  function queueScroll() {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    window.requestAnimationFrame(() => {
+      scrollQueued = false;
+      const y = window.scrollY || window.pageYOffset;
+      const hero = $('#top');
+      const threshold = Math.min(260, Math.max(110, (hero ? hero.offsetHeight : 320) * 0.22));
+      const miniOn = y > threshold;
+      document.body.classList.toggle('mini-on', miniOn);
+      const mini = $('#miniMasthead');
+      mini.setAttribute('aria-hidden', miniOn ? 'false' : 'true');
+      mini.inert = !miniOn;
+      const topButton = $('#toTop');
+      const showTop = y > Math.max(620, window.innerHeight * 0.75);
+      topButton.classList.toggle('is-visible', showTop);
+      topButton.setAttribute('aria-hidden', showTop ? 'false' : 'true');
+      topButton.inert = !showTop;
+    });
+  }
+
+  function init() {
+    setTheme(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light', false);
+    let savedTab = 'kpop';
+    try { savedTab = localStorage.getItem(TAB_KEY) || 'kpop'; } catch (error) {}
+    state.tab = savedTab === 'asia' ? 'asia' : 'kpop';
+    bindEvents();
+    installData(window.KPOPETTE_DATA || null);
+    if (!window.KPOPETTE_DATA) {
+      $('#resultCount').textContent = 'Daten konnten nicht geladen werden.';
+      $('#kpopList').innerHTML = emptyState();
+      $('#stand').textContent = 'data.js fehlt oder konnte nicht geladen werden.';
+      $('#footerStand').textContent = 'data.js fehlt oder konnte nicht geladen werden.';
+    }
+    queueScroll();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+</body>
+</html>
