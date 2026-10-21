@@ -180,6 +180,167 @@ img { display: block; max-width: 100%; }
   pointer-events: none;
 }
 .hero-star path { vector-effect: non-scaling-stroke; }
+.hero-side { position: relative; min-width: 0; }
+.asia-vignette {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  height: 158px;
+  margin: 0;
+  opacity: .84;
+  transform: rotate(-1.1deg);
+  transform-origin: center;
+  pointer-events: none;
+}
+.asia-vignette::before {
+  content: "";
+  position: absolute;
+  inset: 8% 0 0;
+  background:
+    radial-gradient(circle at 24% 54%, rgba(247, 215, 194, .6), transparent 38%),
+    radial-gradient(circle at 77% 62%, rgba(207, 228, 219, .55), transparent 40%),
+    radial-gradient(circle at 54% 28%, rgba(230, 215, 236, .45), transparent 32%);
+  filter: blur(10px);
+  opacity: .8;
+}
+.asia-vignette svg { position: absolute; display: block; height: auto; }
+.vig--plum { left: -12%; top: -10%; width: 66%; opacity: .66; transform: rotate(-5deg); }
+.vig--tower { left: 1%; bottom: 2%; width: 17%; opacity: .72; }
+.vig--palace { left: 27%; bottom: 0; width: 55%; opacity: .66; }
+.vig--hanbok { right: 2%; bottom: 0; width: 33%; opacity: .9; }
+.vig--flag { right: 3%; top: 2%; width: 10%; opacity: .8; transform: rotate(3deg); }
+.vig-hangul {
+  position: absolute;
+  left: 32%;
+  top: 9%;
+  color: #6a4b56;
+  font-family: "Gungsuh", "Batang", "Malgun Gothic", "Noto Serif KR", serif;
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  line-height: 1.15;
+  text-shadow: 0 0 3px #fffaf5;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+.vig-seal {
+  position: absolute;
+  left: 33%;
+  top: 54%;
+  display: grid;
+  place-items: center;
+  width: 13px;
+  height: 13px;
+  border-radius: 2px;
+  background: #b45a5a;
+  color: #fff8ef;
+  font-family: "Gungsuh", "Batang", "Malgun Gothic", serif;
+  font-size: 8px;
+  line-height: 1;
+}
+.vig-petal {
+  position: absolute;
+  left: var(--l);
+  top: var(--t);
+  width: 6px;
+  height: 4px;
+  border-radius: 62% 38% 55% 45%;
+  background: #eeb0c0;
+  opacity: .72;
+  transform: rotate(var(--r));
+  animation: asiaPetal 13s ease-in-out infinite alternate;
+}
+.asia-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.asia-parallax {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.asia-rail {
+  position: absolute;
+  top: -9vh;
+  width: clamp(92px, calc((100vw - 1240px) / 2 - 8px), 340px);
+  height: 118vh;
+  opacity: .8;
+  will-change: transform;
+}
+.asia-rail--left { left: 0; }
+.asia-rail--right { right: 0; }
+.rail-piece { position: absolute; margin: 0; pointer-events: none; }
+.rail-piece > svg { display: block; width: 100%; height: auto; }
+.rail-piece--cherry-cn { top: 9%; left: -36%; width: 180%; transform: rotate(-7deg); }
+.rail-piece--plum-jp { top: 34%; left: -28%; width: 168%; transform: rotate(5deg); }
+.rail-piece--white-th { top: 61%; left: -40%; width: 188%; transform: rotate(-4deg); }
+.rail-piece--hangul { top: 23%; right: 7%; width: auto; }
+.rail-hangul {
+  display: block;
+  color: #764d5b;
+  font-family: "Gungsuh", "Batang", "Malgun Gothic", "Noto Serif KR", serif;
+  font-size: clamp(.72rem, .9vw, 1.02rem);
+  font-weight: 700;
+  letter-spacing: .08em;
+  line-height: 1.12;
+  text-shadow: 0 0 3px #fff8fb;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+.rail-piece--sakura { top: 36%; right: -28%; width: 172%; transform: rotate(4deg); }
+.rail-piece--hanbok { top: 61%; right: 4%; width: 94%; opacity: .82; }
+.rail-piece--white-right { top: 83%; right: -26%; width: 160%; transform: rotate(6deg); }
+.rail-script {
+  position: absolute;
+  color: #6a4b56;
+  font-family: "KaiTi", "Yu Mincho", "Noto Serif CJK", serif;
+  font-size: clamp(.64rem, .82vw, .94rem);
+  font-weight: 600;
+  letter-spacing: .12em;
+  line-height: 1.1;
+  text-shadow: 0 0 3px #fff8fb;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+}
+.rail-script--cn { top: 27%; left: 4px; }
+.rail-script--jp { top: 49%; right: 3px; }
+.rail-script--th {
+  bottom: 10%;
+  left: 4px;
+  font-family: "Leelawadee UI", "Tahoma", "Noto Sans Thai", sans-serif;
+  font-size: clamp(.56rem, .66vw, .76rem);
+  letter-spacing: .04em;
+  writing-mode: horizontal-tb;
+}
+.rail-flag {
+  position: absolute;
+  top: 10%;
+  right: 7%;
+  width: 38%;
+  transform: rotate(3deg);
+}
+.rail-petal {
+  position: absolute;
+  left: var(--l);
+  top: var(--t);
+  width: 6px;
+  height: 4px;
+  border-radius: 62% 38% 55% 45%;
+  background: #eeb0c0;
+  opacity: .6;
+  transform: rotate(var(--r));
+  animation: asiaPetal 13s ease-in-out infinite alternate;
+}
+@keyframes asiaPetal {
+  from { transform: rotate(var(--r)) translate(0, 0); }
+  to { transform: rotate(calc(var(--r) + 28deg)) translate(9px, 15px); }
+}
 .hero::after {
   content: "♥";
   position: absolute;
@@ -618,6 +779,7 @@ input[type="search"]::placeholder { color: var(--muted); font-weight: 600; }
 }
 .edition { margin-top: 32px; }
 .edition-head {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -660,6 +822,61 @@ input[type="search"]::placeholder { color: var(--muted); font-weight: 600; }
   font-size: .9rem;
   font-weight: 600;
 }
+.edition-ornaments {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: 56%;
+  transform: translate(-50%, -50%) rotate(-1deg);
+  pointer-events: none;
+  opacity: .72;
+}
+.edition-ornaments--asia { gap: 7px; opacity: .68; }
+.orn-branch {
+  width: clamp(102px, 10vw, 155px);
+  height: auto;
+  overflow: visible;
+}
+.orn-hangul {
+  color: #754b59;
+  font-family: "Gungsuh", "Batang", "Malgun Gothic", "Noto Serif KR", serif;
+  font-size: clamp(.76rem, .86vw, .96rem);
+  font-weight: 700;
+  letter-spacing: .12em;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.orn-seal {
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 2px;
+  background: #b45a5a;
+  color: #fff8ef;
+  font-family: "Gungsuh", "Batang", "Malgun Gothic", serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  transform: rotate(3deg);
+  box-shadow: 1px 1px 0 rgba(90, 52, 61, .22);
+}
+.orn-script {
+  color: #70515b;
+  font-family: "KaiTi", "Yu Mincho", "Noto Serif CJK", serif;
+  font-size: clamp(.68rem, .8vw, .9rem);
+  font-weight: 600;
+  letter-spacing: .1em;
+  line-height: 1.08;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-shadow: 0 0 3px #fff8fb;
+}
+.orn-script--jp { font-size: clamp(.6rem, .72vw, .8rem); }
 .act-row {
   position: relative;
   display: grid;
@@ -1035,6 +1252,15 @@ html[data-theme="dark"] .status.upcoming { background: var(--gold); }
 html[data-theme="dark"] .cheer-card.highlight .src a { background: #151515; color: var(--gold); }
 html[data-theme="dark"] .tab.is-active { background: var(--gold); color: var(--on-accent); }
 html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--gold); }
+html[data-theme="dark"] .asia-parallax,
+html[data-theme="dark"] .asia-vignette,
+html[data-theme="dark"] .edition-ornaments { display: none; }
+@media (max-width: 1359px) {
+  .asia-parallax { display: none; }
+}
+@media (max-width: 1120px) {
+  .asia-vignette, .edition-ornaments { display: none; }
+}
 @media (max-width: 1050px) {
   .hero-grid { grid-template-columns: 1fr; }
   .hero-card { max-width: 560px; transform: rotate(.6deg); }
@@ -1056,7 +1282,7 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
   .hero-topline .stamp:nth-child(3) { display: none; }
   .kicker { padding: 3px 8px; font-size: 9px; }
   .hero-grid { gap: 14px; padding-bottom: 14px; }
-  .hero-grid .deck, .hero-card { display: none; }
+  .hero-grid .deck, .hero-side { display: none; }
   h1 { font-size: clamp(2rem, 10.5vw, 3.4rem); }
   .stand { margin-top: 6px; font-size: .68rem; line-height: 1.35; }
   .hero-actions { margin-top: 12px; gap: 7px; }
@@ -1109,6 +1335,325 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
 </style>
 </head>
 <body>
+<svg class="asia-defs" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="asiaTowerFade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#6f8c85"/>
+      <stop offset=".62" stop-color="#9fb5aa"/>
+      <stop offset="1" stop-color="#d8e1d7" stop-opacity=".28"/>
+    </linearGradient>
+    <linearGradient id="asiaRoofFade" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7f938a"/>
+      <stop offset=".55" stop-color="#a9b8ac"/>
+      <stop offset="1" stop-color="#d8c4b2"/>
+    </linearGradient>
+    <g id="asiaBlossomPink">
+      <g fill="#eb9bb1" stroke="#cb7891" stroke-width=".6">
+        <path d="M0 0C-8-4-12-15-6-22-2-20 2-20 6-22 12-15 8-4 0 0Z"/>
+        <path d="M0 0C-8-4-12-15-6-22-2-20 2-20 6-22 12-15 8-4 0 0Z" transform="rotate(72)"/>
+        <path d="M0 0C-8-4-12-15-6-22-2-20 2-20 6-22 12-15 8-4 0 0Z" transform="rotate(144)"/>
+        <path d="M0 0C-8-4-12-15-6-22-2-20 2-20 6-22 12-15 8-4 0 0Z" transform="rotate(216)"/>
+        <path d="M0 0C-8-4-12-15-6-22-2-20 2-20 6-22 12-15 8-4 0 0Z" transform="rotate(288)"/>
+      </g>
+      <circle r="2.8" fill="#c88b55"/>
+      <g fill="#a9703f">
+        <circle cx="0" cy="-4.4" r=".7"/>
+        <circle cx="4.2" cy="-1.4" r=".7"/>
+        <circle cx="2.6" cy="3.6" r=".7"/>
+        <circle cx="-2.6" cy="3.6" r=".7"/>
+        <circle cx="-4.2" cy="-1.4" r=".7"/>
+      </g>
+    </g>
+    <g id="asiaBlossomSakura">
+      <g fill="#f4b5c7" stroke="#d38ba1" stroke-width=".6">
+        <path d="M0 0C-8-4-13-14-7-22-4-21-1-21 0-19 1-21 4-21 7-22 13-14 8-4 0 0Z"/>
+        <path d="M0 0C-8-4-13-14-7-22-4-21-1-21 0-19 1-21 4-21 7-22 13-14 8-4 0 0Z" transform="rotate(72)"/>
+        <path d="M0 0C-8-4-13-14-7-22-4-21-1-21 0-19 1-21 4-21 7-22 13-14 8-4 0 0Z" transform="rotate(144)"/>
+        <path d="M0 0C-8-4-13-14-7-22-4-21-1-21 0-19 1-21 4-21 7-22 13-14 8-4 0 0Z" transform="rotate(216)"/>
+        <path d="M0 0C-8-4-13-14-7-22-4-21-1-21 0-19 1-21 4-21 7-22 13-14 8-4 0 0Z" transform="rotate(288)"/>
+      </g>
+      <circle r="2.5" fill="#d6a267"/>
+      <g fill="#b97e47">
+        <circle cx="0" cy="-4" r=".65"/>
+        <circle cx="3.8" cy="1.2" r=".65"/>
+        <circle cx="-3.8" cy="1.2" r=".65"/>
+      </g>
+    </g>
+    <g id="asiaBlossomWhite">
+      <g fill="#fffdf8" stroke="#d7c4ba" stroke-width=".65">
+        <path d="M0 0C-8-4-13-14-7-22-4-21-1-21 0-19 1-21 4-21 7-22 13-14 8-4 0 0Z"/>
+        <path d="M0 0C-8-4-13-14-7-22-4-21-1-21 0-19 1-21 4-21 7-22 13-14 8-4 0 0Z" transform="rotate(72)"/>
+        <path d="M0 0C-8-4-13-14-7-22-4-21-1-21 0-19 1-21 4-21 7-22 13-14 8-4 0 0Z" transform="rotate(144)"/>
+        <path d="M0 0C-8-4-13-14-7-22-4-21-1-21 0-19 1-21 4-21 7-22 13-14 8-4 0 0Z" transform="rotate(216)"/>
+        <path d="M0 0C-8-4-13-14-7-22-4-21-1-21 0-19 1-21 4-21 7-22 13-14 8-4 0 0Z" transform="rotate(288)"/>
+      </g>
+      <circle r="2.3" fill="#d4af72"/>
+      <g fill="#b9884d">
+        <circle cx="0" cy="-3.8" r=".6"/>
+        <circle cx="3.4" cy="1.4" r=".6"/>
+        <circle cx="-3.4" cy="1.4" r=".6"/>
+      </g>
+    </g>
+    <g id="asiaBudPink">
+      <path d="M0 0C-4-3-6-8-3-11 1-14 5-12 7-8 8-4 4-1 0 0Z" fill="#d9829c" stroke="#b96580" stroke-width=".5"/>
+      <path d="M1 0C0 5-2 9-6 12" fill="none" stroke="#735145" stroke-width="1"/>
+      <path d="M-3-8C-6-9-8-7-8-5-6-4-4-5-3-8Z" fill="#95a487"/>
+    </g>
+    <g id="asiaBudWhite">
+      <path d="M0 0C-4-3-6-8-3-11 1-14 5-12 7-8 8-4 4-1 0 0Z" fill="#fbf6ed" stroke="#cdb8af" stroke-width=".5"/>
+      <path d="M1 0C0 5-2 9-6 12" fill="none" stroke="#735145" stroke-width="1"/>
+      <path d="M-3-8C-6-9-8-7-8-5-6-4-4-5-3-8Z" fill="#93a88d"/>
+    </g>
+    <g id="asiaPlum">
+      <g fill="none" stroke="#735044" stroke-linecap="round">
+        <path d="M6 184C82 168 146 146 214 119 284 92 346 76 416 54" stroke-width="5.2"/>
+        <path d="M90 162C99 137 108 112 129 89" stroke-width="2.7"/>
+        <path d="M178 134C183 108 197 90 220 74" stroke-width="2.4"/>
+        <path d="M194 127C204 143 220 153 239 158" stroke-width="1.9"/>
+        <path d="M278 101C282 78 293 61 311 47" stroke-width="2.2"/>
+        <path d="M344 80C362 89 381 95 402 98" stroke-width="2.1"/>
+        <path d="M59 171C48 187 39 198 29 210" stroke-width="1.9"/>
+        <path d="M154 145C166 158 177 164 190 168" stroke-width="1.6"/>
+        <path d="M242 107C247 92 256 81 268 72" stroke-width="1.6"/>
+      </g>
+      <g opacity=".82">
+        <use href="#asiaBlossomPink" transform="translate(39 160) scale(.9) rotate(13)"/>
+        <use href="#asiaBlossomPink" transform="translate(77 170) scale(.72) rotate(-24)"/>
+        <use href="#asiaBlossomPink" transform="translate(118 141) scale(1.02) rotate(8)"/>
+        <use href="#asiaBlossomPink" transform="translate(135 94) scale(.84) rotate(38)"/>
+        <use href="#asiaBlossomPink" transform="translate(173 125) scale(.94) rotate(-11)"/>
+        <use href="#asiaBlossomPink" transform="translate(211 77) scale(.8) rotate(26)"/>
+        <use href="#asiaBlossomPink" transform="translate(235 150) scale(.76) rotate(-43)"/>
+        <use href="#asiaBlossomPink" transform="translate(264 108) scale(1.06) rotate(13)"/>
+        <use href="#asiaBlossomPink" transform="translate(302 92) scale(.82) rotate(52)"/>
+        <use href="#asiaBlossomPink" transform="translate(314 48) scale(.9) rotate(-14)"/>
+        <use href="#asiaBlossomPink" transform="translate(344 76) scale(.7) rotate(21)"/>
+        <use href="#asiaBlossomPink" transform="translate(385 91) scale(.94) rotate(-34)"/>
+        <use href="#asiaBlossomPink" transform="translate(405 58) scale(.66) rotate(7)"/>
+        <use href="#asiaBlossomPink" transform="translate(57 197) scale(.7) rotate(26)"/>
+        <use href="#asiaBudPink" transform="translate(99 112) scale(.8) rotate(40)"/>
+        <use href="#asiaBudPink" transform="translate(151 113) scale(.62) rotate(-30)"/>
+        <use href="#asiaBudPink" transform="translate(194 102) scale(.68) rotate(60)"/>
+        <use href="#asiaBudPink" transform="translate(252 122) scale(.62) rotate(-12)"/>
+        <use href="#asiaBudPink" transform="translate(328 96) scale(.68) rotate(32)"/>
+        <use href="#asiaBudPink" transform="translate(364 72) scale(.56) rotate(-50)"/>
+        <use href="#asiaBudPink" transform="translate(28 207) scale(.66) rotate(20)"/>
+        <use href="#asiaBudPink" transform="translate(183 163) scale(.6) rotate(-20)"/>
+      </g>
+    </g>
+    <g id="asiaSakura">
+      <g fill="none" stroke="#735044" stroke-linecap="round">
+        <path d="M4 208C78 190 130 154 194 136 266 116 327 92 392 57 412 46 432 42 456 44" stroke-width="5"/>
+        <path d="M105 174C126 145 143 118 168 99" stroke-width="2.6"/>
+        <path d="M210 128C234 108 250 85 262 55" stroke-width="2.4"/>
+        <path d="M300 104C322 124 345 133 376 137" stroke-width="2.2"/>
+        <path d="M180 134C178 159 167 181 145 199" stroke-width="2"/>
+        <path d="M335 87C343 66 358 49 380 38" stroke-width="2.1"/>
+        <path d="M70 194C58 207 50 216 41 225" stroke-width="1.7"/>
+        <path d="M250 113C255 98 264 87 276 79" stroke-width="1.5"/>
+      </g>
+      <g fill="#93a98e" opacity=".75">
+        <path d="M0 0C8-5 18-5 25 0 18 5 8 5 0 0Z" transform="translate(96 141) rotate(-35)"/>
+        <path d="M0 0C8-5 18-5 25 0 18 5 8 5 0 0Z" transform="translate(139 101) rotate(15)"/>
+        <path d="M0 0C8-5 18-5 25 0 18 5 8 5 0 0Z" transform="translate(222 112) rotate(-55)"/>
+        <path d="M0 0C8-5 18-5 25 0 18 5 8 5 0 0Z" transform="translate(282 84) rotate(32)"/>
+        <path d="M0 0C8-5 18-5 25 0 18 5 8 5 0 0Z" transform="translate(349 122) rotate(-18)"/>
+        <path d="M0 0C8-5 18-5 25 0 18 5 8 5 0 0Z" transform="translate(397 65) rotate(48)"/>
+      </g>
+      <g opacity=".88">
+        <use href="#asiaBlossomSakura" transform="translate(73 193) scale(.95) rotate(0)"/>
+        <use href="#asiaBlossomSakura" transform="translate(113 165) scale(1.16) rotate(22)"/>
+        <use href="#asiaBlossomSakura" transform="translate(152 115) scale(1.02) rotate(-18)"/>
+        <use href="#asiaBlossomSakura" transform="translate(175 94) scale(.85) rotate(40)"/>
+        <use href="#asiaBlossomSakura" transform="translate(207 130) scale(1.12) rotate(-8)"/>
+        <use href="#asiaBlossomSakura" transform="translate(238 100) scale(.9) rotate(31)"/>
+        <use href="#asiaBlossomSakura" transform="translate(261 63) scale(1.18) rotate(10)"/>
+        <use href="#asiaBlossomSakura" transform="translate(292 104) scale(.96) rotate(-38)"/>
+        <use href="#asiaBlossomSakura" transform="translate(323 125) scale(1.1) rotate(19)"/>
+        <use href="#asiaBlossomSakura" transform="translate(357 136) scale(.86) rotate(-14)"/>
+        <use href="#asiaBlossomSakura" transform="translate(383 76) scale(1.02) rotate(45)"/>
+        <use href="#asiaBlossomSakura" transform="translate(408 53) scale(.9) rotate(-20)"/>
+        <use href="#asiaBlossomSakura" transform="translate(444 44) scale(.74) rotate(18)"/>
+        <use href="#asiaBlossomSakura" transform="translate(152 193) scale(.9) rotate(-30)"/>
+        <use href="#asiaBlossomSakura" transform="translate(188 160) scale(.74) rotate(25)"/>
+        <use href="#asiaBudPink" transform="translate(130 138) scale(.72) rotate(-25)"/>
+        <use href="#asiaBudPink" transform="translate(199 111) scale(.6) rotate(42)"/>
+        <use href="#asiaBudPink" transform="translate(273 85) scale(.7) rotate(-8)"/>
+        <use href="#asiaBudPink" transform="translate(336 111) scale(.62) rotate(25)"/>
+        <use href="#asiaBudPink" transform="translate(421 72) scale(.58) rotate(-42)"/>
+      </g>
+    </g>
+    <g id="asiaCherry">
+      <g fill="none" stroke="#765145" stroke-linecap="round">
+        <path d="M6 168C75 157 134 135 196 130 260 125 320 95 384 91 401 90 414 93 424 100" stroke-width="4.2"/>
+        <path d="M88 153C95 129 105 110 122 94" stroke-width="2.3"/>
+        <path d="M164 136C172 113 185 96 203 84" stroke-width="2.2"/>
+        <path d="M250 117C263 96 278 81 299 70" stroke-width="2.2"/>
+        <path d="M330 94C340 73 354 58 374 49" stroke-width="1.9"/>
+        <path d="M122 144C108 151 97 159 88 170" stroke-width="1.6"/>
+        <path d="M289 82C300 95 312 102 328 105" stroke-width="1.5"/>
+      </g>
+      <g fill="#92a88c" opacity=".68">
+        <path d="M0 0C7-5 17-5 24 0 17 5 7 5 0 0Z" transform="translate(104 118) rotate(-28)"/>
+        <path d="M0 0C7-5 17-5 24 0 17 5 7 5 0 0Z" transform="translate(181 104) rotate(37)"/>
+        <path d="M0 0C7-5 17-5 24 0 17 5 7 5 0 0Z" transform="translate(285 87) rotate(-52)"/>
+        <path d="M0 0C7-5 17-5 24 0 17 5 7 5 0 0Z" transform="translate(355 78) rotate(12)"/>
+        <path d="M0 0C7-5 17-5 24 0 17 5 7 5 0 0Z" transform="translate(401 81) rotate(-30)"/>
+      </g>
+      <g opacity=".9">
+        <use href="#asiaBlossomWhite" transform="translate(64 158) scale(.9) rotate(12)"/>
+        <use href="#asiaBlossomWhite" transform="translate(93 142) scale(.8) rotate(-28)"/>
+        <use href="#asiaBlossomWhite" transform="translate(123 151) scale(.95) rotate(30)"/>
+        <use href="#asiaBlossomWhite" transform="translate(154 135) scale(1.05) rotate(-9)"/>
+        <use href="#asiaBlossomWhite" transform="translate(194 128) scale(.9) rotate(45)"/>
+        <use href="#asiaBlossomWhite" transform="translate(230 115) scale(1) rotate(-18)"/>
+        <use href="#asiaBlossomWhite" transform="translate(266 104) scale(.85) rotate(22)"/>
+        <use href="#asiaBlossomWhite" transform="translate(305 96) scale(.98) rotate(-40)"/>
+        <use href="#asiaBlossomWhite" transform="translate(342 90) scale(1.05) rotate(15)"/>
+        <use href="#asiaBlossomWhite" transform="translate(374 82) scale(.85) rotate(-22)"/>
+        <use href="#asiaBlossomWhite" transform="translate(405 98) scale(.9) rotate(33)"/>
+        <use href="#asiaBlossomWhite" transform="translate(84 117) scale(.7) rotate(55)"/>
+        <use href="#asiaBlossomWhite" transform="translate(150 96) scale(.78) rotate(-12)"/>
+        <use href="#asiaBlossomWhite" transform="translate(260 70) scale(.7) rotate(28)"/>
+        <use href="#asiaBlossomWhite" transform="translate(337 61) scale(.8) rotate(-46)"/>
+        <use href="#asiaBudWhite" transform="translate(76 134) scale(.68) rotate(24)"/>
+        <use href="#asiaBudWhite" transform="translate(140 117) scale(.58) rotate(-33)"/>
+        <use href="#asiaBudWhite" transform="translate(214 108) scale(.62) rotate(42)"/>
+        <use href="#asiaBudWhite" transform="translate(289 90) scale(.6) rotate(-20)"/>
+        <use href="#asiaBudWhite" transform="translate(361 73) scale(.56) rotate(35)"/>
+      </g>
+    </g>
+    <symbol id="asiaTower" viewBox="0 0 180 380">
+      <path d="M7 348C41 325 75 314 104 313 135 315 160 327 175 348V380H7Z" fill="#c7d5c9" opacity=".58"/>
+      <path d="M83 324 96 156 108 156 121 324Z" fill="url(#asiaTowerFade)" opacity=".92"/>
+      <path d="M84 320 97 164M120 320 107 164" fill="none" stroke="#6e8780" stroke-width="1.2" opacity=".62"/>
+      <path d="M83 320C92 313 112 313 121 320" fill="none" stroke="#78918a" stroke-width="1.2" opacity=".55"/>
+      <rect x="78" y="146" width="44" height="13" rx="6" fill="#8ca49c"/>
+      <path d="M84 146C84 131 90 117 100 107 110 117 116 131 116 146Z" fill="#b5c6bc"/>
+      <path d="M94 107H106V98H94Z" fill="#7f9a92"/>
+      <path d="M100 98V70" fill="none" stroke="#6c8780" stroke-width="1.6"/>
+      <circle cx="100" cy="63" r="7" fill="#d9b7a7"/>
+      <path d="M100 56V34M96 34H104M100 34 108 20" fill="none" stroke="#7f958c" stroke-width="1.5" stroke-linecap="round"/>
+      <g fill="#f5f0e5" opacity=".68">
+        <rect x="85" y="151" width="4" height="3" rx="1"/>
+        <rect x="91" y="151" width="4" height="3" rx="1"/>
+        <rect x="97" y="151" width="4" height="3" rx="1"/>
+        <rect x="103" y="151" width="4" height="3" rx="1"/>
+        <rect x="109" y="151" width="4" height="3" rx="1"/>
+      </g>
+      <g fill="none" stroke="#78918a" stroke-width=".8" opacity=".45">
+        <path d="M89 174 100 168 111 174M87 194 100 187 113 194M85 216 100 208 115 216M91 240 100 234 109 240"/>
+      </g>
+    </symbol>
+    <symbol id="asiaPalace" viewBox="0 0 520 220">
+      <path d="M10 130C52 105 99 82 157 66 205 52 237 46 260 46 283 46 315 52 363 66 421 82 468 105 510 130 478 123 448 119 418 119 365 119 331 127 295 135 279 139 241 139 225 135 189 127 155 119 102 119 72 119 42 123 10 130Z" fill="url(#asiaRoofFade)" opacity=".9"/>
+      <path d="M40 99C101 73 164 57 260 57 356 57 419 73 480 99" fill="none" stroke="#72857c" stroke-width="2" opacity=".8"/>
+      <g fill="none" stroke="#788b82" stroke-width=".8" opacity=".48">
+        <path d="M98 82 88 120M155 67 138 120M204 54 188 133M260 47 260 136M316 54 332 133M365 67 382 120M422 82 432 120"/>
+      </g>
+      <path d="M59 130H461V146H59Z" fill="#b97868" opacity=".8"/>
+      <path d="M80 146H440V201H80Z" fill="#e4d1bd" opacity=".52"/>
+      <g fill="#aa6a60" opacity=".82">
+        <rect x="94" y="146" width="12" height="61"/>
+        <rect x="154" y="146" width="10" height="61"/>
+        <rect x="356" y="146" width="10" height="61"/>
+        <rect x="414" y="146" width="12" height="61"/>
+      </g>
+      <rect x="238" y="158" width="44" height="49" fill="#90796c" opacity=".7"/>
+      <rect x="228" y="204" width="64" height="8" fill="#9eafa3" opacity=".7"/>
+      <g fill="#dcc0aa" opacity=".8">
+        <circle cx="111" cy="136" r="4"/>
+        <circle cx="137" cy="136" r="4"/>
+        <circle cx="194" cy="136" r="4"/>
+        <circle cx="326" cy="136" r="4"/>
+        <circle cx="383" cy="136" r="4"/>
+        <circle cx="409" cy="136" r="4"/>
+      </g>
+      <g fill="#d7b49e" opacity=".9">
+        <circle cx="14" cy="129" r="5"/>
+        <circle cx="260" cy="46" r="5"/>
+        <circle cx="506" cy="129" r="5"/>
+      </g>
+    </symbol>
+    <symbol id="asiaHanbok" viewBox="0 0 400 300">
+      <ellipse cx="198" cy="270" rx="144" ry="9" fill="#d8c8bd" opacity=".36"/>
+      <path d="M205 54C205 104 205 158 205 218" fill="none" stroke="#72584d" stroke-width="2.6"/>
+      <path d="M205 218C205 234 192 239 184 228" fill="none" stroke="#72584d" stroke-width="2.6" stroke-linecap="round"/>
+      <g transform="translate(128 30)">
+        <path d="M-4 90C-27 126-44 185-52 245L54 245C46 185 30 126 8 90Z" fill="#d18b94"/>
+        <path d="M0 98C-3 144-5 195 0 245M18 96C20 144 24 198 31 245M-18 96C-20 145-25 199-30 245" fill="none" stroke="#b66f7a" stroke-width="1.3" opacity=".62"/>
+        <path d="M-22 54C-36 66-40 82-34 96L35 96C40 82 35 65 21 54Z" fill="#f2e7d3"/>
+        <path d="M-12 55 0 73 13 55" fill="none" stroke="#fffaf1" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M-34 95H36" fill="none" stroke="#a65e64" stroke-width="5"/>
+        <path d="M2 94C16 101 27 107 35 115" fill="none" stroke="#a65e64" stroke-width="3.2" stroke-linecap="round"/>
+        <ellipse cx="0" cy="39" rx="13" ry="15" fill="#f0cfb5"/>
+        <path d="M-17 40C-19 17 3 5 20 18 28 25 26 39 22 49 17 33 10 27 2 27-7 27-12 32-17 45Z" fill="#443735"/>
+        <circle cx="-3" cy="10" r="8" fill="#443735"/>
+        <path d="M-15 22C-19 32-18 40-12 46M17 20C21 29 21 38 16 45" fill="none" stroke="#5b4944" stroke-width="1.2" opacity=".7"/>
+        <path d="M-20 56C-33 73-39 91-35 108" fill="none" stroke="#f2e7d3" stroke-width="8" stroke-linecap="round"/>
+        <path d="M18 58C36 72 55 86 72 96" fill="none" stroke="#f2e7d3" stroke-width="8" stroke-linecap="round"/>
+        <circle cx="73" cy="97" r="4" fill="#ecc7ab"/>
+        <path d="M-33 108C-38 118-37 126-31 131" fill="none" stroke="#f0cfb5" stroke-width="4" stroke-linecap="round"/>
+        <path d="M-8 118H9" fill="none" stroke="#8f4f58" stroke-width="2" opacity=".55"/>
+      </g>
+      <g transform="translate(266 26)">
+        <path d="M-3 92C-26 131-42 190-49 249L56 249C48 190 32 131 9 92Z" fill="#8fa5a0"/>
+        <path d="M1 100C-1 146-3 198 2 249M20 98C22 147 27 200 34 249M-16 98C-18 147-23 200-28 249" fill="none" stroke="#718983" stroke-width="1.3" opacity=".62"/>
+        <path d="M-21 56C-35 68-39 84-33 98L36 98C41 84 36 67 22 56Z" fill="#efd6c7"/>
+        <path d="M-11 57 0 75 12 57" fill="none" stroke="#fffaf1" stroke-width="3" stroke-linejoin="round"/>
+        <path d="M-33 97H37" fill="none" stroke="#a36460" stroke-width="5"/>
+        <path d="M4 96C18 103 29 110 37 118" fill="none" stroke="#a36460" stroke-width="3.2" stroke-linecap="round"/>
+        <ellipse cx="0" cy="41" rx="13" ry="15" fill="#f0cfb5"/>
+        <path d="M-18 42C-20 18 3 7 20 20 27 28 25 42 21 51 16 34 9 29 1 29-8 29-13 34-18 47Z" fill="#443735"/>
+        <circle cx="-2" cy="12" r="8" fill="#443735"/>
+        <path d="M-14 24C-18 34-17 43-11 48M18 22C22 31 22 40 16 47" fill="none" stroke="#5b4944" stroke-width="1.2" opacity=".7"/>
+        <path d="M-18 58C-30 74-34 94-29 111" fill="none" stroke="#efd6c7" stroke-width="8" stroke-linecap="round"/>
+        <path d="M18 59C35 74 43 91 39 109" fill="none" stroke="#efd6c7" stroke-width="8" stroke-linecap="round"/>
+        <circle cx="-29" cy="112" r="4" fill="#ecc7ab"/>
+        <path d="M-7 120H10" fill="none" stroke="#8f4f58" stroke-width="2" opacity=".55"/>
+        <path d="M24 148C31 152 37 158 40 165" fill="none" stroke="#d6b595" stroke-width="2" opacity=".8"/>
+      </g>
+      <g transform="translate(200 52)">
+        <path d="M-92 4C-88-40-52-73 0-76 52-73 88-40 92 4 73-9 48-17 23-17 5-17 0-8-7-2-17 7-49 11-92 4Z" fill="#df9c98" opacity=".9"/>
+        <path d="M-92 4C-50-10-22-17 4-17 35-17 64-9 92 4" fill="none" stroke="#b87578" stroke-width="1.6" opacity=".7"/>
+        <g fill="none" stroke="#b87578" stroke-width=".9" opacity=".55">
+          <path d="M0-72C-12-46-20-25-23-10M0-72C10-48 18-27 22-11M0-72C-35-44-57-19-70 1M0-72C38-45 60-20 73 1"/>
+        </g>
+        <circle cx="0" cy="-77" r="4" fill="#b87578"/>
+        <path d="M-7 10C-4 17 5 18 8 11" fill="none" stroke="#b87578" stroke-width="1.4" opacity=".7"/>
+      </g>
+    </symbol>
+    <symbol id="asiaFlag" viewBox="0 0 120 80">
+      <rect x="1.5" y="1.5" width="117" height="77" rx="2" fill="#fffdf7" stroke="#8d7b70" stroke-width="1.5"/>
+      <g transform="translate(60 40)">
+        <circle r="18" fill="#5b83a8"/>
+        <path d="M-18 0A18 18 0 0 1 18 0 9 9 0 0 0 0 0 9 9 0 0 1-18 0Z" fill="#c75f65"/>
+        <g fill="#3d3a39">
+          <g transform="translate(-42 -28) rotate(-45)">
+            <rect x="-11" y="-6" width="22" height="2.5"/>
+            <rect x="-11" y="-1.5" width="22" height="2.5"/>
+            <rect x="-11" y="3" width="22" height="2.5"/>
+          </g>
+          <g transform="translate(42 -28) rotate(45)">
+            <rect x="-11" y="-6" width="22" height="2.5"/>
+            <rect x="-11" y="-1.5" width="22" height="2.5"/>
+            <rect x="-11" y="3" width="22" height="2.5"/>
+          </g>
+          <g transform="translate(-42 28) rotate(45)">
+            <rect x="-11" y="-6" width="22" height="2.5"/>
+            <rect x="-11" y="-1.5" width="22" height="2.5"/>
+            <rect x="-11" y="3" width="22" height="2.5"/>
+          </g>
+          <g transform="translate(42 28) rotate(-45)">
+            <rect x="-11" y="-6" width="22" height="2.5"/>
+            <rect x="-11" y="-1.5" width="22" height="2.5"/>
+            <rect x="-11" y="3" width="22" height="2.5"/>
+          </g>
+        </g>
+      </g>
+    </symbol>
+  </defs>
+</svg>
 <a class="skip" href="#main">Zum Inhalt springen</a>
 <svg class="dolls" viewBox="0 0 1400 300" aria-hidden="true" focusable="false">
   <g fill="currentColor">
@@ -1164,6 +1709,50 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
   </g>
 </svg>
 
+<div class="asia-parallax" aria-hidden="true">
+  <div class="asia-rail asia-rail--left" data-parallax="0.028">
+    <figure class="rail-piece rail-piece--cherry-cn">
+      <svg viewBox="0 0 430 230" focusable="false"><use href="#asiaCherry" width="430" height="230"/></svg>
+    </figure>
+    <figure class="rail-piece rail-piece--plum-jp">
+      <svg viewBox="0 0 420 230" focusable="false"><use href="#asiaPlum" width="420" height="230"/></svg>
+    </figure>
+    <figure class="rail-piece rail-piece--white-th">
+      <svg viewBox="0 0 430 230" focusable="false"><use href="#asiaCherry" width="430" height="230"/></svg>
+    </figure>
+    <span class="rail-script rail-script--cn">春風</span>
+    <span class="rail-script rail-script--jp">さくら</span>
+    <span class="rail-script rail-script--th">ดอกไม้</span>
+    <span class="rail-petal" style="--l: 16%; --t: 17%; --r: 22deg"></span>
+    <span class="rail-petal" style="--l: 64%; --t: 29%; --r: -38deg"></span>
+    <span class="rail-petal" style="--l: 31%; --t: 47%; --r: 74deg"></span>
+    <span class="rail-petal" style="--l: 73%; --t: 59%; --r: 12deg"></span>
+    <span class="rail-petal" style="--l: 24%; --t: 73%; --r: -19deg"></span>
+    <span class="rail-petal" style="--l: 58%; --t: 88%; --r: 51deg"></span>
+  </div>
+  <div class="asia-rail asia-rail--right" data-parallax="0.04">
+    <svg class="rail-flag" viewBox="0 0 120 80" focusable="false"><use href="#asiaFlag" width="120" height="80"/></svg>
+    <figure class="rail-piece rail-piece--hangul">
+      <span class="rail-hangul">오늘도 빛나게</span>
+    </figure>
+    <figure class="rail-piece rail-piece--sakura">
+      <svg viewBox="0 0 460 240" focusable="false"><use href="#asiaSakura" width="460" height="240"/></svg>
+    </figure>
+    <figure class="rail-piece rail-piece--hanbok">
+      <svg viewBox="0 0 400 300" focusable="false"><use href="#asiaHanbok" width="400" height="300"/></svg>
+    </figure>
+    <figure class="rail-piece rail-piece--white-right">
+      <svg viewBox="0 0 430 230" focusable="false"><use href="#asiaCherry" width="430" height="230"/></svg>
+    </figure>
+    <span class="rail-petal" style="--l: 29%; --t: 18%; --r: -24deg"></span>
+    <span class="rail-petal" style="--l: 68%; --t: 31%; --r: 43deg"></span>
+    <span class="rail-petal" style="--l: 21%; --t: 49%; --r: 8deg"></span>
+    <span class="rail-petal" style="--l: 75%; --t: 65%; --r: -57deg"></span>
+    <span class="rail-petal" style="--l: 35%; --t: 78%; --r: 31deg"></span>
+    <span class="rail-petal" style="--l: 61%; --t: 91%; --r: -12deg"></span>
+  </div>
+</div>
+
 <header class="hero" id="top">
   <svg class="hero-star" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
     <path d="M50 4 61.8 36.2 96 37.1 68.7 58.2 78.2 91 50 71.8 21.8 91 31.3 58.2 4 37.1 38.2 36.2Z"/>
@@ -1195,14 +1784,30 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
         </div>
       </div>
     </div>
-    <aside class="hero-card" aria-label="Heute im Blatt">
-      <span class="tape">Heute im Blatt</span>
-      <h2>Die Themen mit dem meisten Kribbeln</h2>
-      <ul id="heroHighlights">
-        <li>Top20, Gossip und Quellen werden geladen …</li>
-      </ul>
-      <p class="mini-note">Kein Lizenz-Presseportal: Wir verlinken Quellen, kennzeichnen Gerüchte und schreiben in deiner Sprache. Zahlen sind Momentaufnahmen.</p>
-    </aside>
+    <div class="hero-side">
+      <aside class="hero-card" aria-label="Heute im Blatt">
+        <span class="tape">Heute im Blatt</span>
+        <h2>Die Themen mit dem meisten Kribbeln</h2>
+        <ul id="heroHighlights">
+          <li>Top20, Gossip und Quellen werden geladen …</li>
+        </ul>
+        <p class="mini-note">Kein Lizenz-Presseportal: Wir verlinken Quellen, kennzeichnen Gerüchte und schreiben in deiner Sprache. Zahlen sind Momentaufnahmen.</p>
+      </aside>
+      <div class="asia-vignette" aria-hidden="true">
+        <svg class="vig--plum" viewBox="0 0 420 230" focusable="false"><use href="#asiaPlum" width="420" height="230"/></svg>
+        <svg class="vig--palace" viewBox="0 0 520 220" focusable="false"><use href="#asiaPalace" width="520" height="220"/></svg>
+        <svg class="vig--hanbok" viewBox="0 0 400 300" focusable="false"><use href="#asiaHanbok" width="400" height="300"/></svg>
+        <svg class="vig--tower" viewBox="0 0 180 380" focusable="false"><use href="#asiaTower" width="180" height="380"/></svg>
+        <svg class="vig--flag" viewBox="0 0 120 80" focusable="false"><use href="#asiaFlag" width="120" height="80"/></svg>
+        <span class="vig-hangul">고요한 빛</span>
+        <span class="vig-seal">봄</span>
+        <span class="vig-petal" style="--l: 47%; --t: 19%; --r: 23deg"></span>
+        <span class="vig-petal" style="--l: 55%; --t: 36%; --r: -42deg"></span>
+        <span class="vig-petal" style="--l: 68%; --t: 13%; --r: 64deg"></span>
+        <span class="vig-petal" style="--l: 76%; --t: 47%; --r: 9deg"></span>
+        <span class="vig-petal" style="--l: 42%; --t: 63%; --r: -28deg"></span>
+      </div>
+    </div>
   </div>
   <div class="ticker" aria-label="Schlagzeilen">
     <div class="ticker-track" id="tickerTrack"></div>
@@ -1262,6 +1867,11 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
         <h2>K-Pop Top20</h2>
       </div>
       <span class="quota">20 Acts</span>
+      <div class="edition-ornaments" aria-hidden="true">
+        <svg class="orn-branch" viewBox="0 0 420 230" focusable="false"><use href="#asiaPlum" width="420" height="230"/></svg>
+        <span class="orn-hangul">마음의 봄</span>
+        <span class="orn-seal">봄</span>
+      </div>
     </div>
     <p class="edition-sub">Girlgroups, Boygroups, Solos: die komplette K-Pop-Spitze, frisch nach Views und Likes sortiert. Jede Zeile zeigt das offizielle Video und zwei aktuelle Meldungen.</p>
     <div id="kpopList" class="rows"></div>
@@ -1274,6 +1884,12 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
         <h2>Asia Top20</h2>
       </div>
       <span class="quota">Quoten sichtbar</span>
+      <div class="edition-ornaments edition-ornaments--asia" aria-hidden="true">
+        <span class="orn-script">春風</span>
+        <svg class="orn-branch" viewBox="0 0 460 240" focusable="false"><use href="#asiaSakura" width="460" height="240"/></svg>
+        <span class="orn-script orn-script--jp">さくら</span>
+        <span class="orn-seal">花</span>
+      </div>
     </div>
     <p class="edition-sub">China 5, Japan 5, Taiwan 2, Ozeanien &amp; Insel-Asien 2, Thailand 2, Mongolei 2, Indien 2. Innerhalb jedes Landes entscheidet der Hype; die Quoten bleiben sichtbar.</p>
     <div id="asiaList" class="rows"></div>
@@ -1337,6 +1953,8 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
 
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+  const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const parallaxLayers = $$('[data-parallax]');
 
   function escapeHtml(value) {
     return String(value == null ? '' : value).replace(/[&<>"']/g, (character) => ({
@@ -1792,6 +2410,14 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
       topButton.classList.toggle('is-visible', showTop);
       topButton.setAttribute('aria-hidden', showTop ? 'false' : 'true');
       topButton.inert = !showTop;
+      parallaxLayers.forEach((layer) => {
+        if (motionQuery.matches) {
+          layer.style.transform = '';
+          return;
+        }
+        const speed = Number(layer.dataset.parallax) || 0;
+        layer.style.transform = 'translate3d(0,' + (-Math.min(y * speed, 260)).toFixed(1) + 'px,0)';
+      });
     });
   }
 
