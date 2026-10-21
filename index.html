@@ -37,6 +37,8 @@ try {
   --tint-4: #ffe8f0;
   --glow-a: rgba(247, 201, 216, .58);
   --glow-b: rgba(246, 183, 205, .30);
+  --star-fill: rgba(201, 162, 39, .10);
+  --star-line: rgba(184, 134, 11, .52);
   --grid: rgba(58, 43, 51, .05);
   --ticker-bg: #8e2f4e;
   --ticker-ink: #fff8fb;
@@ -68,6 +70,8 @@ html[data-theme="dark"] {
   --tint-4: #2b2b2e;
   --glow-a: rgba(201, 162, 39, .10);
   --glow-b: rgba(255, 255, 255, .035);
+  --star-fill: rgba(216, 184, 90, .12);
+  --star-line: rgba(216, 184, 90, .62);
   --grid: rgba(255, 255, 255, .035);
   --ticker-bg: #111112;
   --ticker-ink: #e8e8e8;
@@ -161,20 +165,21 @@ img { display: block; max-width: 100%; }
   background: var(--card);
   box-shadow: var(--shadow);
 }
-.hero::before {
-  content: "★";
+.hero-star {
   position: absolute;
   right: 22px;
   top: -18px;
   z-index: 0;
-  color: var(--yellow);
-  font-family: "Arial Black", sans-serif;
-  font-size: clamp(120px, 18vw, 250px);
-  line-height: 1;
-  opacity: .55;
+  width: clamp(120px, 18vw, 250px);
+  height: auto;
+  fill: var(--star-fill);
+  stroke: var(--star-line);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
   transform: rotate(12deg);
   pointer-events: none;
 }
+.hero-star path { vector-effect: non-scaling-stroke; }
 .hero::after {
   content: "♥";
   position: absolute;
@@ -273,6 +278,93 @@ h1 {
   align-items: center;
   margin-top: 20px;
 }
+.quickpad-block {
+  max-width: 390px;
+  margin-top: 18px;
+}
+.quickpad-label {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-size: .65rem;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.quickpad {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+}
+.qkey {
+  --q: var(--line);
+  --q-tint: var(--card);
+  --q-soft: transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 3px;
+  min-height: 54px;
+  padding: 8px 12px;
+  border: 2px solid var(--q);
+  border-radius: 14px;
+  background: linear-gradient(180deg, var(--q-tint), var(--card) 145%);
+  color: var(--ink);
+  box-shadow: 0 5px 0 var(--q), 0 8px 14px rgba(0, 0, 0, .12);
+  font-weight: 900;
+  line-height: 1.05;
+  text-align: left;
+  touch-action: manipulation;
+  transition: transform .08s ease, box-shadow .08s ease, filter .15s ease;
+}
+.qkey strong {
+  font-size: .96rem;
+  letter-spacing: -.01em;
+}
+.qkey small {
+  color: var(--muted);
+  font-size: .61rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.qkey:hover {
+  filter: saturate(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 0 var(--q), 0 10px 16px rgba(0, 0, 0, .14);
+}
+.qkey:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 var(--q), 0 2px 4px rgba(0, 0, 0, .14);
+}
+.qkey[data-key="kpop"] { --q: #b3184f; --q-tint: #ffe4ee; }
+.qkey[data-key="asia"] { --q: #146c94; --q-tint: #dff5ff; }
+.qkey[data-key="cheer"] { --q: #7a5b00; --q-tint: #fff1bf; }
+.qkey[data-key="worlds"] { --q: #6d3fc4; --q-tint: #efe7ff; }
+.qkey[data-key="uaap"] { --q: #b93f0c; --q-tint: #ffe5d6; }
+.qkey[data-key="saxony"] { --q: #0b6b5b; --q-tint: #d9f7ea; }
+html[data-theme="dark"] .qkey {
+  background: linear-gradient(180deg, var(--q-tint), #101013 145%);
+  color: #fff;
+  box-shadow: 0 5px 0 #050506, 0 0 18px var(--q-soft), inset 0 1px 0 rgba(255, 255, 255, .14);
+}
+html[data-theme="dark"] .qkey:hover {
+  box-shadow: 0 6px 0 #050506, 0 0 22px var(--q-soft), inset 0 1px 0 rgba(255, 255, 255, .18);
+}
+html[data-theme="dark"] .qkey:active {
+  box-shadow: 0 1px 0 #050506, 0 0 8px var(--q-soft);
+}
+html[data-theme="dark"] .qkey strong {
+  color: var(--q);
+  text-shadow: 0 0 10px var(--q-soft);
+}
+html[data-theme="dark"] .qkey small { color: #f0f0f2; }
+html[data-theme="dark"] .qkey[data-key="kpop"] { --q: #ff4fa3; --q-tint: #2a1420; --q-soft: rgba(255, 79, 163, .5); }
+html[data-theme="dark"] .qkey[data-key="asia"] { --q: #39d5ff; --q-tint: #0d2430; --q-soft: rgba(57, 213, 255, .5); }
+html[data-theme="dark"] .qkey[data-key="cheer"] { --q: #ffe066; --q-tint: #2a2410; --q-soft: rgba(255, 224, 102, .45); }
+html[data-theme="dark"] .qkey[data-key="worlds"] { --q: #b388ff; --q-tint: #21162f; --q-soft: rgba(179, 136, 255, .5); }
+html[data-theme="dark"] .qkey[data-key="uaap"] { --q: #ff8a5c; --q-tint: #2c1810; --q-soft: rgba(255, 138, 92, .5); }
+html[data-theme="dark"] .qkey[data-key="saxony"] { --q: #5ef2b0; --q-tint: #0d2620; --q-soft: rgba(94, 242, 176, .45); }
 .btn {
   display: inline-flex;
   align-items: center;
@@ -344,8 +436,9 @@ h1 {
   font-weight: 700;
   line-height: 1.4;
 }
-.hero-card li { display: flex; gap: 7px; align-items: flex-start; }
-.hero-card li::before { content: "✦"; flex: none; font-weight: 900; }
+.hero-card li { position: relative; padding-left: 17px; }
+.hero-card li::before { content: "✦"; position: absolute; left: 0; top: 0; font-weight: 900; }
+.hero-card a { white-space: nowrap; }
 .hero-card .mini-note {
   margin: 14px 0 0;
   padding-top: 10px;
@@ -852,25 +945,37 @@ footer p { margin: 6px 0; color: var(--muted); font-size: .75rem; font-weight: 6
   right: 16px;
   bottom: 16px;
   z-index: 80;
-  display: grid;
-  place-items: center;
-  width: 54px;
-  height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  height: 46px;
+  padding: 0 14px;
   border: 3px solid var(--on-accent);
-  border-radius: 50%;
+  border-radius: 999px;
   background: var(--pink);
   color: var(--on-accent);
   box-shadow: 4px 4px 0 var(--on-accent);
-  font-size: 1.35rem;
+  font-size: .74rem;
   font-weight: 900;
+  letter-spacing: .07em;
   line-height: 1;
+  text-transform: uppercase;
   opacity: 0;
   transform: translateY(20px);
   pointer-events: none;
   transition: opacity .2s ease, transform .2s ease;
 }
+.to-top-arrow { font-size: 1.15rem; line-height: 1; }
 .to-top.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
 .to-top:hover { transform: translateY(-2px); }
+html[data-theme="dark"] .to-top {
+  background: #161618;
+  color: var(--gold);
+  border-color: var(--gold);
+  box-shadow: 4px 4px 0 #000, 0 0 18px rgba(201, 162, 39, .35);
+}
+html[data-theme="dark"] .to-top:hover { box-shadow: 4px 6px 0 #000, 0 0 24px rgba(201, 162, 39, .5); }
 .toast {
   position: fixed;
   left: 50%;
@@ -955,6 +1060,11 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
   h1 { font-size: clamp(2rem, 10.5vw, 3.4rem); }
   .stand { margin-top: 6px; font-size: .68rem; line-height: 1.35; }
   .hero-actions { margin-top: 12px; gap: 7px; }
+  .quickpad-block { max-width: none; margin-top: 14px; }
+  .quickpad { gap: 7px; }
+  .qkey { min-height: 50px; padding: 7px 10px; border-radius: 12px; }
+  .qkey strong { font-size: .9rem; }
+  .qkey small { font-size: .56rem; }
   .ticker { padding: 7px 0; }
   .ticker-track { font-size: .62rem; }
   .gossip-list { grid-template-columns: 1fr; }
@@ -988,7 +1098,8 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
   .act-title { font-size: 1.5rem; }
   .rank { min-width: 40px; height: 40px; font-size: .95rem; }
   .gossip { padding: 11px; }
-  .to-top { right: 12px; bottom: 12px; width: 50px; height: 50px; }
+  .to-top { right: 12px; bottom: 12px; height: 44px; padding: 0 12px; font-size: .68rem; }
+  .to-top-arrow { font-size: 1.05rem; }
   .toast { bottom: 76px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1054,6 +1165,9 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
 </svg>
 
 <header class="hero" id="top">
+  <svg class="hero-star" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+    <path d="M50 4 61.8 36.2 96 37.1 68.7 58.2 78.2 91 50 71.8 21.8 91 31.3 58.2 4 37.1 38.2 36.2Z"/>
+  </svg>
   <div class="hero-topline">
     <span class="stamp" id="issueStamp">Ausgabe 21.10.2026</span>
     <span class="stamp alt">Asia · K-Pop · Cheerdance</span>
@@ -1068,6 +1182,17 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
       <div class="hero-actions">
         <a class="btn primary" href="#controls">Loslesen</a>
         <button class="btn icon-btn" data-theme-toggle type="button" aria-label="Zwischen Hell und Lady-Dark wechseln" title="Hell / Lady-Dark">◐</button>
+      </div>
+      <div class="quickpad-block">
+        <p class="quickpad-label">Schnellzugriff · Tanz &amp; Cheer</p>
+        <div class="quickpad" role="group" aria-label="Schnellzugriff">
+          <button class="qkey" data-key="kpop" data-jump="kpop" type="button"><strong>K-Pop</strong><small>Top 20</small></button>
+          <button class="qkey" data-key="asia" data-jump="asia" type="button"><strong>Asia</strong><small>Top 20</small></button>
+          <button class="qkey" data-key="cheer" data-jump="cheerdance" type="button"><strong>Cheer</strong><small>Alle Tanz-Themen</small></button>
+          <button class="qkey" data-key="worlds" data-jump="cheer-spg" type="button"><strong>Dance Worlds</strong><small>Japan · April 2026</small></button>
+          <button class="qkey" data-key="uaap" data-jump="cheer-uaap" type="button"><strong>UAAP</strong><small>Philippinen · Saison 89</small></button>
+          <button class="qkey" data-key="saxony" data-jump="cheer-saxony-taiwan" type="button"><strong>Saxony × Taiwan</strong><small>31.10. · Weinböhla</small></button>
+        </div>
       </div>
     </div>
     <aside class="hero-card" aria-label="Heute im Blatt">
@@ -1182,7 +1307,7 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
   </footer>
 </main>
 
-<button class="to-top" id="toTop" type="button" aria-label="Nach oben" title="Nach oben" aria-hidden="true" inert>↑</button>
+<button class="to-top" id="toTop" type="button" aria-label="Zum Anfang" title="Zum Anfang" aria-hidden="true" inert><span class="to-top-arrow" aria-hidden="true">↑</span><span>Zum Anfang</span></button>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <dialog class="dialog" id="sourcesDialog">
@@ -1419,8 +1544,35 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
     $('#heroHighlights').innerHTML = [
       '<li>K-Pop-Spitze: ' + escapeHtml(kpop.join(' · ')) + '</li>',
       '<li>Asia-Spitze: ' + escapeHtml(asia.join(' · ')) + '</li>',
-      '<li>Cheerdance: Dance Worlds, UAAP und Sachsen × Taiwan</li>'
+      '<li>Cheerdance: <a href="#cheer-spg" data-jump="cheer-spg">Dance Worlds</a> · <a href="#cheer-uaap" data-jump="cheer-uaap">UAAP</a> · <a href="#cheer-saxony-taiwan" data-jump="cheer-saxony-taiwan">Sachsen × Taiwan</a></li>'
     ].join('');
+  }
+
+  function renderCheerdance() {
+    const entries = Array.isArray(DATA.cheerdance) ? DATA.cheerdance : [];
+    const grid = $('#cheerGrid');
+    if (!entries.length) {
+      grid.innerHTML = '<div class="empty">Keine Tanz-Themen gefunden.</div>';
+      return;
+    }
+    grid.innerHTML = entries.map((entry) => {
+      const statusClass = entry.status === 'past' ? ' past' : entry.status === 'upcoming' ? ' upcoming' : '';
+      const statusLabel = entry.status === 'past' ? 'Vorbei' : entry.status === 'upcoming' ? 'Demnächst' : 'Aktiv';
+      const sources = [];
+      if (entry.sourceUrl) {
+        sources.push('<a href="' + escapeHtml(safeUrl(entry.sourceUrl)) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(entry.source || 'Quelle') + '</a>');
+      }
+      if (entry.secondSourceUrl) {
+        sources.push('<a href="' + escapeHtml(safeUrl(entry.secondSourceUrl)) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(entry.secondSourceLabel || 'Zweite Quelle') + '</a>');
+      }
+      return '<article class="cheer-card' + (entry.highlight ? ' highlight' : '') + '" id="cheer-' + escapeHtml(entry.id) + '">' +
+        '<div class="cheer-meta"><span class="status' + statusClass + '">' + statusLabel + '</span><span>' + escapeHtml(entry.type) + '</span><span>' + escapeHtml(entry.date) + '</span></div>' +
+        '<h3>' + escapeHtml(entry.name) + '</h3>' +
+        '<p class="cheer-region">' + escapeHtml(entry.region) + '</p>' +
+        '<p class="cheer-text">' + escapeHtml(entry.text) + '</p>' +
+        (sources.length ? '<div class="src">' + sources.join('') + '</div>' : '') +
+      '</article>';
+    }).join('');
   }
 
   function renderSources() {
@@ -1450,6 +1602,7 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
     renderMeta();
     renderTicker();
     renderHighlights();
+    renderCheerdance();
     renderSources();
     render();
   }
@@ -1599,10 +1752,17 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
     $$('[data-theme-toggle]').forEach((button) => button.addEventListener('click', () => {
       setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark', true);
     }));
-    $$('[data-jump]').forEach((button) => button.addEventListener('click', () => {
+    $$('[data-jump]').forEach((button) => button.addEventListener('click', (event) => {
+      event.preventDefault();
       const target = button.dataset.jump;
-      if (target === 'cheerdance') $('#cheerdance').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      else switchTab(target === 'kpop' ? 'kpop' : 'asia', true);
+      if (target === 'cheerdance') {
+        $('#cheerdance').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else if (target.indexOf('cheer-') === 0) {
+        const card = document.getElementById(target);
+        if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        switchTab(target === 'kpop' ? 'kpop' : 'asia', true);
+      }
     }));
     $$('[data-scroll-top]').forEach((link) => link.addEventListener('click', (event) => {
       event.preventDefault();
@@ -1627,7 +1787,8 @@ html[data-theme="dark"] .tab.is-active span { background: #151515; color: var(--
       mini.setAttribute('aria-hidden', miniOn ? 'false' : 'true');
       mini.inert = !miniOn;
       const topButton = $('#toTop');
-      const showTop = y > Math.max(620, window.innerHeight * 0.75);
+      const heroBottom = hero ? hero.offsetTop + hero.offsetHeight : 0;
+      const showTop = y > heroBottom - 32;
       topButton.classList.toggle('is-visible', showTop);
       topButton.setAttribute('aria-hidden', showTop ? 'false' : 'true');
       topButton.inert = !showTop;
