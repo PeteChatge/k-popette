@@ -1,5 +1,5 @@
 window.KPOPETTE_DATA = {
-  "stand": "2026-10-21T18:40:26.124Z",
+  "stand": "2026-10-21T18:44:59.791Z",
   "title": "Ricky's K-POP Gazette",
   "subtitle": "K-Pop, Klatsch & Cheerdance",
   "acts": [
@@ -16,8 +16,8 @@ window.KPOPETTE_DATA = {
         "title": "Stray Kids \"This & That\" M/V",
         "channel": "JYP Entertainment",
         "released": "2026",
-        "views": 115932446,
-        "likes": 1708945,
+        "views": 115935713,
+        "likes": 1708953,
         "url": "https://www.youtube.com/watch?v=BZ4UzthYTss",
         "thumb": "https://i.ytimg.com/vi/BZ4UzthYTss/hqdefault.jpg"
       },
@@ -59,8 +59,8 @@ window.KPOPETTE_DATA = {
         "title": "KATSEYE (캣츠아이) 'Hootie Frutti' Official MV",
         "channel": "HYBE LABELS",
         "released": "2026",
-        "views": 133226613,
-        "likes": 1301835,
+        "views": 133234257,
+        "likes": 1301852,
         "url": "https://www.youtube.com/watch?v=is8UDe2PhKQ",
         "thumb": "https://i.ytimg.com/vi/is8UDe2PhKQ/hqdefault.jpg"
       },
@@ -102,8 +102,8 @@ window.KPOPETTE_DATA = {
         "title": "BTS (방탄소년단) ‘Merry Go Round’ Official MV",
         "channel": "BANGTANTV",
         "released": "Sep 2026",
-        "views": 11374691,
-        "likes": 855727,
+        "views": 11375456,
+        "likes": 855733,
         "url": "https://www.youtube.com/watch?v=eJXL4-4m5nY",
         "thumb": "https://i.ytimg.com/vi/eJXL4-4m5nY/hqdefault.jpg"
       },
@@ -145,8 +145,8 @@ window.KPOPETTE_DATA = {
         "title": "ILLIT (아일릿) ‘It’s Me’ Official MV",
         "channel": "HYBE LABELS",
         "released": "2026",
-        "views": 195720430,
-        "likes": 1594517,
+        "views": 195725376,
+        "likes": 1594526,
         "url": "https://www.youtube.com/watch?v=bMhDJ0S0OBA",
         "thumb": "https://i.ytimg.com/vi/bMhDJ0S0OBA/hqdefault.jpg"
       },
@@ -188,8 +188,8 @@ window.KPOPETTE_DATA = {
         "title": "ENHYPEN (엔하이픈) 'Bloody Paradise' Official MV",
         "channel": "HYBE LABELS",
         "released": "2026",
-        "views": 58606215,
-        "likes": 1104091,
+        "views": 58609630,
+        "likes": 1104111,
         "url": "https://www.youtube.com/watch?v=MT-4Bk1Lw8g",
         "thumb": "https://i.ytimg.com/vi/MT-4Bk1Lw8g/hqdefault.jpg"
       },
@@ -231,8 +231,8 @@ window.KPOPETTE_DATA = {
         "title": "ATEEZ(에이티즈) - 'BAD' Official MV",
         "channel": "KQ ENTERTAINMENT",
         "released": "2026",
-        "views": 102595177,
-        "likes": 1395021,
+        "views": 102599633,
+        "likes": 1395030,
         "url": "https://www.youtube.com/watch?v=-q_S27LbNKU",
         "thumb": "https://i.ytimg.com/vi/-q_S27LbNKU/hqdefault.jpg"
       },
@@ -274,8 +274,8 @@ window.KPOPETTE_DATA = {
         "title": "LISA - SaWaDiKa (Official Music Video)",
         "channel": "LISAOfficialVEVO",
         "released": "2026",
-        "views": 214219115,
-        "likes": 3121231,
+        "views": 214224765,
+        "likes": 3121255,
         "url": "https://www.youtube.com/watch?v=FyS5dAywkEo",
         "thumb": "https://i.ytimg.com/vi/FyS5dAywkEo/hqdefault.jpg"
       },
@@ -317,8 +317,8 @@ window.KPOPETTE_DATA = {
         "title": "CORTIS (코르티스) 'REDRED' Official MV",
         "channel": "HYBE LABELS",
         "released": "2026",
-        "views": 85000496,
-        "likes": 1618249,
+        "views": 85002017,
+        "likes": 1618252,
         "url": "https://www.youtube.com/watch?v=U6BDbXIah-Y",
         "thumb": "https://i.ytimg.com/vi/U6BDbXIah-Y/hqdefault.jpg"
       },
@@ -360,8 +360,8 @@ window.KPOPETTE_DATA = {
         "title": "LE SSERAFIM (르세라핌) 'Made My Night' OFFICIAL MV with OVERWATCH",
         "channel": "HYBE LABELS",
         "released": "2026",
-        "views": 16551510,
-        "likes": 315526,
+        "views": 16552024,
+        "likes": 315527,
         "url": "https://www.youtube.com/watch?v=Y1Lah0BM0KQ",
         "thumb": "https://i.ytimg.com/vi/Y1Lah0BM0KQ/hqdefault.jpg"
       },
@@ -388,7 +388,7 @@ window.KPOPETTE_DATA = {
         }
       ],
       "newsQuery": "LE SSERAFIM",
-      "hype": 4.9
+      "hype": 4.8
     },
     {
       "id": "babymonster",
@@ -403,8 +403,8 @@ window.KPOPETTE_DATA = {
         "title": "BABYMONSTER - 'MOON' M/V",
         "channel": "BABYMONSTER",
         "released": "2026",
-        "views": 88794113,
-        "likes": 848605,
+        "views": 88795212,
+        "likes": 848606,
         "url": "https://www.youtube.com/watch?v=xXZwZ0DolJc",
         "thumb": "https://i.ytimg.com/vi/xXZwZ0DolJc/hqdefault.jpg"
       },
@@ -446,8 +446,8 @@ window.KPOPETTE_DATA = {
         "title": "BLACKPINK - ‘GO’ M/V",
         "channel": "BLACKPINK",
         "released": "2026",
-        "views": 98486495,
-        "likes": 3848502,
+        "views": 98487254,
+        "likes": 3848510,
         "url": "https://www.youtube.com/watch?v=2GJfWMYCWY0",
         "thumb": "https://i.ytimg.com/vi/2GJfWMYCWY0/hqdefault.jpg"
       },
@@ -489,8 +489,8 @@ window.KPOPETTE_DATA = {
         "title": "aespa 에스파 'LEMONADE' MV",
         "channel": "SMTOWN",
         "released": "2026",
-        "views": 92389935,
-        "likes": 1215178,
+        "views": 92392020,
+        "likes": 1215183,
         "url": "https://www.youtube.com/watch?v=83C3TZ4Zm_o",
         "thumb": "https://i.ytimg.com/vi/83C3TZ4Zm_o/hqdefault.jpg"
       },
@@ -532,8 +532,8 @@ window.KPOPETTE_DATA = {
         "title": "JISOO - CLICK (Official MV)",
         "channel": "JISOO",
         "released": "2026",
-        "views": 54089142,
-        "likes": 2128300,
+        "views": 54089847,
+        "likes": 2128301,
         "url": "https://www.youtube.com/watch?v=sf02ugzPFE4",
         "thumb": "https://i.ytimg.com/vi/sf02ugzPFE4/hqdefault.jpg"
       },
@@ -575,8 +575,8 @@ window.KPOPETTE_DATA = {
         "title": "TXT (투모로우바이투게더) 'セツナハナビ (Setsuna Hanabi)' Official MV",
         "channel": "HYBE LABELS",
         "released": "2026",
-        "views": 20708251,
-        "likes": 369376,
+        "views": 20708657,
+        "likes": 369381,
         "url": "https://www.youtube.com/watch?v=Tg076GY2a-Q",
         "thumb": "https://i.ytimg.com/vi/Tg076GY2a-Q/hqdefault.jpg"
       },
@@ -618,8 +618,8 @@ window.KPOPETTE_DATA = {
         "title": "IVE 아이브 'Looks Can Kill' MV",
         "channel": "STARSHIP",
         "released": "Okt 2026",
-        "views": 10798336,
-        "likes": 249016,
+        "views": 10806667,
+        "likes": 249088,
         "url": "https://www.youtube.com/watch?v=rsNhWkC4neE",
         "thumb": "https://i.ytimg.com/vi/rsNhWkC4neE/hqdefault.jpg"
       },
@@ -661,8 +661,8 @@ window.KPOPETTE_DATA = {
         "title": "정한X조슈아 (SEVENTEEN) '12 o'clock' Official MV",
         "channel": "HYBE LABELS",
         "released": "Okt 2026",
-        "views": 8191417,
-        "likes": 104153,
+        "views": 8198330,
+        "likes": 104174,
         "url": "https://www.youtube.com/watch?v=hdwGWGSfABA",
         "thumb": "https://i.ytimg.com/vi/hdwGWGSfABA/hqdefault.jpg"
       },
@@ -704,8 +704,8 @@ window.KPOPETTE_DATA = {
         "title": "NMIXX(엔믹스) “긴 소원(Birthday Wish)” M/V",
         "channel": "JYP Entertainment",
         "released": "Okt 2026",
-        "views": 12396102,
-        "likes": 165409,
+        "views": 12432217,
+        "likes": 165427,
         "url": "https://www.youtube.com/watch?v=roHWN9fL2SM",
         "thumb": "https://i.ytimg.com/vi/roHWN9fL2SM/hqdefault.jpg"
       },
@@ -790,8 +790,8 @@ window.KPOPETTE_DATA = {
         "title": "Hearts2Hearts 하츠투하츠 'RUDE!' MV",
         "channel": "SMTOWN",
         "released": "2026",
-        "views": 156516789,
-        "likes": 1480733,
+        "views": 156518478,
+        "likes": 1480734,
         "url": "https://www.youtube.com/watch?v=F7sGJVUrkjQ",
         "thumb": "https://i.ytimg.com/vi/F7sGJVUrkjQ/hqdefault.jpg"
       },
@@ -833,8 +833,8 @@ window.KPOPETTE_DATA = {
         "title": "소연 (SOYEON) '퇴사할게여 (Narr. 기안84)' Official Music Video",
         "channel": "i-dle (아이들)",
         "released": "2026",
-        "views": 24275839,
-        "likes": 198734,
+        "views": 24276466,
+        "likes": 198736,
         "url": "https://www.youtube.com/watch?v=7mDDM0eBWR0",
         "thumb": "https://i.ytimg.com/vi/7mDDM0eBWR0/hqdefault.jpg"
       },
@@ -876,7 +876,7 @@ window.KPOPETTE_DATA = {
         "title": "周深 Zhou Shen《少管我》Official Music Video",
         "channel": "ZhouShen Official",
         "released": "2026",
-        "views": 127241,
+        "views": 127248,
         "likes": 4372,
         "url": "https://www.youtube.com/watch?v=GR9wSDoMMOY",
         "thumb": "https://i.ytimg.com/vi/GR9wSDoMMOY/hqdefault.jpg"
@@ -919,7 +919,7 @@ window.KPOPETTE_DATA = {
         "title": "G.E.M. 鄧紫棋【自由的你 FREE TO BE YOU】啟程版 Official Lyric Video (4K)",
         "channel": "GEM鄧紫棋",
         "released": "2026",
-        "views": 1541582,
+        "views": 1541847,
         "likes": 22848,
         "url": "https://www.youtube.com/watch?v=0GZ4gQQE1yM",
         "thumb": "https://i.ytimg.com/vi/0GZ4gQQE1yM/hqdefault.jpg"
@@ -962,8 +962,8 @@ window.KPOPETTE_DATA = {
         "title": "Jackson Wang - Thank You (Official Music Video)",
         "channel": "Jackson Wang",
         "released": "2026",
-        "views": 5346328,
-        "likes": 64985,
+        "views": 5346563,
+        "likes": 64987,
         "url": "https://www.youtube.com/watch?v=KzM1arYmO4w",
         "thumb": "https://i.ytimg.com/vi/KzM1arYmO4w/hqdefault.jpg"
       },
@@ -1048,7 +1048,7 @@ window.KPOPETTE_DATA = {
         "title": "她 (《早春晴朗》电视剧栾念人物曲&片头曲)",
         "channel": "Liu Yu Ning - Topic",
         "released": "2026",
-        "views": 2529934,
+        "views": 2530213,
         "likes": 20068,
         "url": "https://www.youtube.com/watch?v=mBsFE_zjHac",
         "thumb": "https://i.ytimg.com/vi/mBsFE_zjHac/hqdefault.jpg"
@@ -1091,7 +1091,7 @@ window.KPOPETTE_DATA = {
         "title": "Mrs. GREEN APPLE「共犯」Official Music Video",
         "channel": "Mrs. GREEN APPLE",
         "released": "2026",
-        "views": 19827795,
+        "views": 19830513,
         "likes": 91359,
         "url": "https://www.youtube.com/watch?v=zq9B35oai2w",
         "thumb": "https://i.ytimg.com/vi/zq9B35oai2w/hqdefault.jpg"
@@ -1134,8 +1134,8 @@ window.KPOPETTE_DATA = {
         "title": "米津玄師  Kenshi Yonezu - IRIS OUT",
         "channel": "Kenshi Yonezu  米津玄師",
         "released": "2025",
-        "views": 235956394,
-        "likes": 2010494,
+        "views": 235957477,
+        "likes": 2010495,
         "url": "https://www.youtube.com/watch?v=LmZD-TU96q4",
         "thumb": "https://i.ytimg.com/vi/LmZD-TU96q4/hqdefault.jpg"
       },
@@ -1177,8 +1177,8 @@ window.KPOPETTE_DATA = {
         "title": "【Ado】Raven Sky",
         "channel": "Ado",
         "released": "Okt 2026",
-        "views": 2860367,
-        "likes": 115788,
+        "views": 2861861,
+        "likes": 115805,
         "url": "https://www.youtube.com/watch?v=7DBSMzbPQzc",
         "thumb": "https://i.ytimg.com/vi/7DBSMzbPQzc/hqdefault.jpg"
       },
@@ -1220,8 +1220,8 @@ window.KPOPETTE_DATA = {
         "title": "YOASOBI「咲き誇れ」Official Music Video / NHK連続テレビ小説『ブラッサム』主題歌",
         "channel": "YOASOBI",
         "released": "Okt 2026",
-        "views": 2762933,
-        "likes": 49810,
+        "views": 2763778,
+        "likes": 49816,
         "url": "https://www.youtube.com/watch?v=qwYhKlY4Tx0",
         "thumb": "https://i.ytimg.com/vi/qwYhKlY4Tx0/hqdefault.jpg"
       },
@@ -1263,7 +1263,7 @@ window.KPOPETTE_DATA = {
         "title": "Fujii Kaze - You (Official Music Video)",
         "channel": "Fujii Kaze",
         "released": "2026",
-        "views": 6410120,
+        "views": 6410285,
         "likes": 144070,
         "url": "https://www.youtube.com/watch?v=s4UW__ysPEM",
         "thumb": "https://i.ytimg.com/vi/s4UW__ysPEM/hqdefault.jpg"
@@ -1306,7 +1306,7 @@ window.KPOPETTE_DATA = {
         "title": "JOLIN 蔡依林《布拉格廣場 Prague Square (JOLIN Version)》- 星宇航空布拉格開航主題曲 Official Music Video",
         "channel": "JOLIN 蔡依林",
         "released": "2026",
-        "views": 5268906,
+        "views": 5268737,
         "likes": 70437,
         "url": "https://www.youtube.com/watch?v=b7rGJMEEO2Q",
         "thumb": "https://i.ytimg.com/vi/b7rGJMEEO2Q/hqdefault.jpg"
@@ -1392,7 +1392,7 @@ window.KPOPETTE_DATA = {
         "title": "BINI | 'Salamin, Salamin' Official Music Video",
         "channel": "BINI Official",
         "released": "2024",
-        "views": 98401958,
+        "views": 98401989,
         "likes": 501113,
         "url": "https://www.youtube.com/watch?v=J1Ip2sC_lss",
         "thumb": "https://i.ytimg.com/vi/J1Ip2sC_lss/hqdefault.jpg"
@@ -1435,7 +1435,7 @@ window.KPOPETTE_DATA = {
         "title": "Bernadya - Satu Bulan (Official Music Video)",
         "channel": "BernadyaVEVO",
         "released": "2023",
-        "views": 78092875,
+        "views": 78093033,
         "likes": 210627,
         "url": "https://www.youtube.com/watch?v=yjnSX_iUFVo",
         "thumb": "https://i.ytimg.com/vi/yjnSX_iUFVo/hqdefault.jpg"
@@ -1478,8 +1478,8 @@ window.KPOPETTE_DATA = {
         "title": "Jeff Satur – Dum Dum (ดึมดึม)【Official Music Video】",
         "channel": "Jeff Satur",
         "released": "2023",
-        "views": 93400014,
-        "likes": 655172,
+        "views": 93400145,
+        "likes": 655173,
         "url": "https://www.youtube.com/watch?v=xjh-mb9IuzU",
         "thumb": "https://i.ytimg.com/vi/xjh-mb9IuzU/hqdefault.jpg"
       },
@@ -1565,7 +1565,7 @@ window.KPOPETTE_DATA = {
         "channel": "The HU",
         "released": "2019",
         "views": 127260712,
-        "likes": 1656200,
+        "likes": 1656201,
         "url": "https://www.youtube.com/watch?v=jM8dCGIm6yc",
         "thumb": "https://i.ytimg.com/vi/jM8dCGIm6yc/hqdefault.jpg"
       },
@@ -1607,7 +1607,7 @@ window.KPOPETTE_DATA = {
         "title": "Uuhai - Khar Khulz",
         "channel": "UuhaiVEVO",
         "released": "2024",
-        "views": 8996729,
+        "views": 8996766,
         "likes": 225378,
         "url": "https://www.youtube.com/watch?v=aVevvvvNYhM",
         "thumb": "https://i.ytimg.com/vi/aVevvvvNYhM/hqdefault.jpg"
@@ -1650,7 +1650,7 @@ window.KPOPETTE_DATA = {
         "title": "Diljit Dosanjh I Sanya Malhotra I Charmer | Raj Ranjodh | Avvy Sra ( Official Video )",
         "channel": "Diljit Dosanjh",
         "released": "2025",
-        "views": 80747212,
+        "views": 80748468,
         "likes": 302312,
         "url": "https://www.youtube.com/watch?v=CGhGAVH2GqY",
         "thumb": "https://i.ytimg.com/vi/CGhGAVH2GqY/hqdefault.jpg"
@@ -1693,8 +1693,8 @@ window.KPOPETTE_DATA = {
         "title": "Hanumankind, Kalmi - Hanumankind – Big Dawgs | Prod. Kalmi (Official Music Video) | Def Jam India",
         "channel": "HanumankindVEVO",
         "released": "2024",
-        "views": 323845535,
-        "likes": 6852418,
+        "views": 323846880,
+        "likes": 6852422,
         "url": "https://www.youtube.com/watch?v=hOHKltAiKXQ",
         "thumb": "https://i.ytimg.com/vi/hOHKltAiKXQ/hqdefault.jpg"
       },
